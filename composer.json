@@ -7,17 +7,11 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-<<<<<<< HEAD
         "laravelcollective/html": "^5.2.0",
-        "zizaco/entrust": "5.2.x-dev"
-
-=======
-<<<<<<< HEAD
-        "acacha/admin-lte-template-laravel": "2.*"
-=======
+        "zizaco/entrust": "5.2.x-dev",
+        "acacha/admin-lte-template-laravel": "2.*",
         "laravelcollective/html": "^5.2.0"
->>>>>>> remotes/origin/master
->>>>>>> remotes/origin/master
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
