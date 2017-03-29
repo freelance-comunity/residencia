@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable
-{
+{   
+    use EntrustUserTrait; //hacemos uso del trait en la clase User para hacer uso de sus métodos
     /**
      * The attributes that are mass assignable.
      *

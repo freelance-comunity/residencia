@@ -167,6 +167,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         // ...
 
+        Zizaco\Entrust\EntrustServiceProvider::class,
+
+
 
 
     ],
@@ -222,7 +225,6 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         // ...
-
 
     ],
 
