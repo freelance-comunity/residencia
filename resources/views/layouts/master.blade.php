@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SISEEPV - @yield('title')</title>
+	<title>SEDSC - @yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -80,7 +80,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 text-right">
-						<p class="site">www.siseepv.sistemastectuxtla.net</p>
+						<p class="site">www.SEDSC.sistemastectuxtla.net</p>
 						<p class="num">Llamanos: (961) 61 5 04 61</p>
 						<ul class="fh5co-social">
 							<li><a href="#"><i class="icon-facebook2"></i></a></li>
@@ -97,7 +97,7 @@
 					<div class="col-xs-2">
 
 
-						<div id="fh5co-logo"><a href="{{ url('/') }}"><i class="icon-study"></i>SISEEPV<span>.</span></a></div>
+						<div id="fh5co-logo"><a href="{{ url('/') }}"><i class="icon-study"></i>SEDSC<span>.</span></a></div>
 
 					</div>
 					<div class="col-xs-10 text-right menu-1">

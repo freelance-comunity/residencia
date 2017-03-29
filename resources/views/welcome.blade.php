@@ -14,7 +14,7 @@ INICIO
                             <div class="slider-text-inner">
                                 <h1>Posgrados y Educación Continua</h1>
                                 <h2>Desarrolla tu máximo potencial, continúa preparándote.</h2>
-                                <p><a class="btn btn-primary btn-lg" href="#">Comienza hoy!</a></p>
+                                <p><a class="btn btn-primary btn-lg" href="{{ url('register') }}">Comienza hoy!</a></p>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ INICIO
                             <div class="slider-text-inner">
                                 <h1>Desarrollo Profesional y Vinculación Laboral</h1>
                                 <h2>¡Regístrate y aprovecha los beneficios de la nueva bolsa de trabajo SISEEPV!</h2>
-                                <p><a class="btn btn-primary btn-lg btn-learn" href="#">Comienza hoy!</a></p>
+                                <p><a class="btn btn-primary btn-lg btn-learn" href="{{ url('register') }}">Comienza hoy!</a></p>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ INICIO
                             <div class="slider-text-inner">
                                 <h1>Proyectos Vinculados y Banco de Proyectos</h1>
                                 <h2>Espacio de ideas y expresiones tecnologicas.</h2>
-                                <p><a class="btn btn-primary btn-lg btn-learn" href="#">Comienza hoy!</a></p>
+                                <p><a class="btn btn-primary btn-lg btn-learn" href="{{ url('register') }}">Comienza hoy!</a></p>
                             </div>
                         </div>
                     </div>
