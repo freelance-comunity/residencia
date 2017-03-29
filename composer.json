@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "acacha/admin-lte-template-laravel": "2.*",
         "laravelcollective/html": "^5.2.0",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "uxweb/sweet-alert": "^1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
