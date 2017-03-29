@@ -18,3 +18,27 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/testing', function(){
+	return view('front-end.index');
+});
+
+Route::get('/graduates', function(){
+	return view('front-end.graduates');
+});
+
+Route::get('/company', function(){
+	return view('front-end.company');
+});
+
+Route::get('/projects', function(){
+	return view('front-end.projects');
+});
+
+Route::get('/organization', function(){
+	return view('front-end.organization');
+});
+
+Route::get('/academic', function(){
+	return view('front-end.academic');
+});
