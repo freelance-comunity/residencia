@@ -42,3 +42,35 @@ Route::get('/organization', function(){
 Route::get('/academic', function(){
 	return view('front-end.academic');
 });
+
+
+Route::resource('companies', 'CompanyController');
+
+Route::get('companies/{id}/delete', [
+    'as' => 'companies.delete',
+    'uses' => 'CompanyController@destroy',
+]);
+
+
+Route::resource('vacancies', 'VacancyController');
+
+Route::get('vacancies/{id}/delete', [
+    'as' => 'vacancies.delete',
+    'uses' => 'VacancyController@destroy',
+]);
+
+
+Route::resource('residents', 'ResidentsController');
+
+Route::get('residents/{id}/delete', [
+    'as' => 'residents.delete',
+    'uses' => 'ResidentsController@destroy',
+]);
+
+
+Route::resource('services', 'ServiceController');
+
+Route::get('services/{id}/delete', [
+    'as' => 'services.delete',
+    'uses' => 'ServiceController@destroy',
+]);
