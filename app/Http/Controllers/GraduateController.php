@@ -8,6 +8,8 @@ use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
 use Schema;
+use App\User;
+use Alert;
 
 class GraduateController extends AppBaseController
 {
@@ -62,7 +64,7 @@ class GraduateController extends AppBaseController
 	public function store(CreateGraduateRequest $request)
 	{
         $input = $request->all();
-
+        
 		$graduate = Graduate::create($input);
 
 		Flash::message('Graduate saved successfully.');
