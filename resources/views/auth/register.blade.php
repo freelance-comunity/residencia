@@ -75,6 +75,8 @@
             $("#company").click(function (e){
                 $(this).parents(".type").remove();
                 $('#items').append('<div class="form-group has-feedback"><input type="text" class="form-control" placeholder="{{ trans('adminlte_lang::message.fullname') }}" name="name" value="{{ old('name') }}"/><span class="glyphicon glyphicon-user form-control-feedback"></span></div>'+
+                    '<div class="form-group has-feedback"><input type="text" class="form-control" placeholder="Nombre de la Empresa" name="name"/><span class="glyphicon glyphicon-company form-control-feedback"></span></div>'+
+
                 '<div class="form-group has-feedback"><input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email" value="{{ old('email') }}"/><span class="glyphicon glyphicon-envelope form-control-feedback"></span></div>'+
                 '<div class="form-group has-feedback"><input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.password') }}" name="password"/><span class="glyphicon glyphicon-lock form-control-feedback"></span></div>'+
                 '<div class="form-group has-feedback"><input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.retrypepassword') }}" name="password_confirmation"/><span class="glyphicon glyphicon-log-in form-control-feedback"></span></div>'+
