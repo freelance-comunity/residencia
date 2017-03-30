@@ -11,7 +11,12 @@
 
 <script>
 	$(document).ready(function(){
-		$('#myTable').DataTable();
+		$('#myTable').DataTable({
+			responsive: true,
+			"language": {
+				"url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"
+			}
+		});
 	});
 </script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.

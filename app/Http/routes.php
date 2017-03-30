@@ -44,6 +44,7 @@ Route::get('/academic', function(){
 });
 
 
+
 Route::resource('companies', 'CompanyController');
 
 Route::get('companies/{id}/delete', [
@@ -73,4 +74,12 @@ Route::resource('services', 'ServiceController');
 Route::get('services/{id}/delete', [
     'as' => 'services.delete',
     'uses' => 'ServiceController@destroy',
+]);
+
+Route::resource('graduates', 'GraduateController');
+
+Route::get('graduates/{id}/delete', [
+    'as' => 'graduates.delete',
+    'uses' => 'GraduateController@destroy',
+
 ]);
