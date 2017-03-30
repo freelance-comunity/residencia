@@ -28,10 +28,11 @@
             <form action="{{ url('/register') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <!-- Extras -->
-                <div class="type form-group has-feedback">
-                    <input type="button" id="graduate" value="Egresado" class="btn btn-primary btn-block">
-        
-                    <input type="button" id="company" value="Empresa" class="btn btn-success btn-block ">
+                <div class="form-group has-feedback">
+                    <a href="{{ url('/register-graduate') }}"><input type="button" value="Egresado" class="btn btn-primary btn-block"></a>
+                </div>
+                <div class="form-group has-feedback">
+                    <a href="{{ url('/register-company')}}"><input type="button" value="Empresa" class="btn btn-success btn-block"></a>
                 </div>
                 <div id="items"></div>
                 <!-- End Extras -->
