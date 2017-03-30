@@ -42,3 +42,11 @@ Route::get('/organization', function(){
 Route::get('/academic', function(){
 	return view('front-end.academic');
 });
+
+
+Route::resource('graduates', 'GraduateController');
+
+Route::get('graduates/{id}/delete', [
+    'as' => 'graduates.delete',
+    'uses' => 'GraduateController@destroy',
+]);
