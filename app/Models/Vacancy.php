@@ -18,7 +18,9 @@ class Vacancy extends Model
 		"area",
 		"salary",
 		"contact",
-		"period"
+		"period",
+		"company_id"
+
 	];
 
 	public static $rules = [

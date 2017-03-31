@@ -8,6 +8,7 @@ use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
 use Schema;
+use Alert;
 
 class ResidentsController extends AppBaseController
 {
@@ -65,7 +66,7 @@ class ResidentsController extends AppBaseController
 
 		$residents = Residents::create($input);
 
-		Flash::message('Residents saved successfully.');
+		Alert::success('Solicitud de Residentes Generada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('residents.index'));
 	}
@@ -131,7 +132,7 @@ class ResidentsController extends AppBaseController
 		$residents->fill($request->all());
 		$residents->save();
 
-		Flash::message('Residents updated successfully.');
+		Alert::success('Solicitud Editada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('residents.index'));
 	}
@@ -156,7 +157,7 @@ class ResidentsController extends AppBaseController
 
 		$residents->delete();
 
-		Flash::message('Residents deleted successfully.');
+		Alert::success('Solicitud Eliminada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('residents.index'));
 	}

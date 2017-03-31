@@ -8,6 +8,7 @@ use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
 use Schema;
+use Alert;
 
 class ServiceController extends AppBaseController
 {
@@ -65,7 +66,7 @@ class ServiceController extends AppBaseController
 
 		$service = Service::create($input);
 
-		Flash::message('Service saved successfully.');
+		Alert::success('Solicitud Generada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('services.index'));
 	}
@@ -131,7 +132,7 @@ class ServiceController extends AppBaseController
 		$service->fill($request->all());
 		$service->save();
 
-		Flash::message('Service updated successfully.');
+		Alert::success('Solicitud Editada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('services.index'));
 	}
@@ -156,7 +157,7 @@ class ServiceController extends AppBaseController
 
 		$service->delete();
 
-		Flash::message('Service deleted successfully.');
+		Alert::success('Solicitud Eliminada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('services.index'));
 	}

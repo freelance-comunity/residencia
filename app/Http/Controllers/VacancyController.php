@@ -8,6 +8,7 @@ use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
 use Schema;
+use Alert;
 
 class VacancyController extends AppBaseController
 {
@@ -65,7 +66,7 @@ class VacancyController extends AppBaseController
 
 		$vacancy = Vacancy::create($input);
 
-		Flash::message('Vacancy saved successfully.');
+		Alert::success('Solicitud de Vacantes Generada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('vacancies.index'));
 	}
@@ -131,7 +132,7 @@ class VacancyController extends AppBaseController
 		$vacancy->fill($request->all());
 		$vacancy->save();
 
-		Flash::message('Vacancy updated successfully.');
+		Alert::success('Solicitud Editada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('vacancies.index'));
 	}
@@ -156,7 +157,7 @@ class VacancyController extends AppBaseController
 
 		$vacancy->delete();
 
-		Flash::message('Vacancy deleted successfully.');
+		Alert::success('Solicitud Eliminada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('vacancies.index'));
 	}

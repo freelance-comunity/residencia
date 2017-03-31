@@ -85,7 +85,7 @@ class CompanyController extends AppBaseController
 
 		Auth::login($user);
         return redirect('/home');
-	}
+	}  
 
 	/**
 	 * Display the specified Company.
