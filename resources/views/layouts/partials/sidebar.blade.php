@@ -24,6 +24,7 @@
             <li class="header">Menú</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
+            @role('coordinador')
             <li><a href="#"><i class='fa fa-users'></i> <span>Crear Usuarios</span></a></li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-user'></i> <span>Usuarios Existentes</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -68,6 +69,7 @@
                     </ul>
                 </li>
                 <li class="active"><a href="{{ url('home') }}"><i class='fa fa-calendar '></i> <span>Eventos</span></a></li>
+                @endrole
             </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
