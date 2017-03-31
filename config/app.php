@@ -237,7 +237,9 @@ return [
 
     'Form'  => 'Illuminate\Html\FormFacade',
     'HTML'  => 'Illuminate\Html\HtmlFacade',
-    'Flash' => 'Laracasts\Flash\Flash'
+    'Flash' => 'Laracasts\Flash\Flash',
+
+    'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
     ],
 
