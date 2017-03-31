@@ -36,7 +36,7 @@ class User extends Authenticatable
     public function company()
     {
         return $this->hasOne('App\Models\Company');
-
+    }
     public function graduate()
     {
         return $this->hasOne('App\Models\Graduate');
