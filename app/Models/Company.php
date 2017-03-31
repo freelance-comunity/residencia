@@ -19,7 +19,8 @@ class Company extends Model
 		"phone",
 		"director",
 		"contact",
-		"period"
+		"period",
+		"user_id"
 	];
 
 	public static $rules = [
@@ -30,7 +31,10 @@ class Company extends Model
 		"phone" => "required",
 		"director" => "required",
 		"contact" => "required",
-		"period" => "required"
+		"period" => "required",
+		'email' => 'required|email|max:255|unique:users',
+		'password' => 'required|confirmed|min:6',
+		'terms' => "required",
 	];
 
 	public function user()

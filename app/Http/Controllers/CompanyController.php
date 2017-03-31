@@ -12,6 +12,8 @@ use Hash;
 use Alert;
 use App\User;
 use App\Role;
+use Illuminate\Support\Facades\Input;
+use Auth;
 
 class CompanyController extends AppBaseController
 {
@@ -65,13 +67,24 @@ class CompanyController extends AppBaseController
 	 */
 	public function store(CreateCompanyRequest $request)
 	{
-        $input = $request->all();
-
+		$input = $request->all();
+        /*==== Create User for Graduate ====*/
+        $role = Role::where('name', 'company')->first();
+        $data['name'] = $request->input('name');
+		$data['email'] = $request->input('email');
+		$data['password'] = Hash::make($request->input('password'));
+		$usercreate = User::create($data);
+		$id = $usercreate->id;
+		$user = User::find($id);
+		$email = $user->email;
+		$password = $user->password;
+		$user->attachRole($role);
+		$input['user_id'] = $id;
+        /*==== End Create User for Graduate ====*/
 		$company = Company::create($input);
 
-		Alert::success('Datos guardados exitosamente!')->persistent("Cerrar");
-
-		return redirect(route('companies.index'));
+		Auth::login($user);
+        return redirect('/home');
 	}
 
 	/**

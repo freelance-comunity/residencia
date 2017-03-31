@@ -25,22 +25,22 @@ Registro de Empresas
 
 		<div class="register-box-body">
 			<p class="login-box-msg">Registro de Empresas</p>
-			<form action="{{ url('/register') }}" method="post">
+			{!! Form::open(['route' => 'companies.store']) !!}
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="form-group has-feedback">
 					<input type="text" class="form-control" placeholder="Nombre de la empresa" name="name" value="{{ old('name') }}"/><span class="fa fa-building form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
 					<select class="form-control" name="sector" id="">
-						<option value="Hombre">Agropecuario</option>
-						<option value="Mujer">Gobierno</option>
-						<option value="Hombre">Salud</option>
-						<option value="Mujer">Comercio</option>
-						<option value="Hombre">Transporte</option>
-						<option value="Mujer">Educación</option>
-						<option value="Mujer">Turismo</option>
-						<option value="Hombre">Contrucción</option>
-						<option value="Mujer">Humanidades</option>
+						<option value="Agropecuario">Agropecuario</option>
+						<option value="Gobierno">Gobierno</option>
+						<option value="Salud">Salud</option>
+						<option value="Comercio">Comercio</option>
+						<option value="Transporte">Transporte</option>
+						<option value="Educación">Educación</option>
+						<option value="Turismo">Turismo</option>
+						<option value="Contrucción">Contrucción</option>
+						<option value="Humanidades">Humanidades</option>
 					</select>
 				</div>				
 				<div class="form-group has-feedback">

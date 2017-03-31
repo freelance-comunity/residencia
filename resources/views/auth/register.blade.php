@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
-@section('htmlheader_title')
-    Register
+@section('title')
+    Registro
 @endsection
 
 @section('content')

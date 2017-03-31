@@ -25,7 +25,7 @@ Registro de Egresados
 
 		<div class="register-box-body">
 			<p class="login-box-msg">Registro de Egresados</p>
-			<form action="{{ url('/register') }}" method="post">
+			{!! Form::open(['route' => 'graduates.store']) !!}
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="form-group has-feedback">
 					<input type="text" class="form-control" placeholder="{{ trans('adminlte_lang::message.fullname') }}" name="name" value="{{ old('name') }}"/><span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -34,7 +34,7 @@ Registro de Egresados
 					<input type="text" class="form-control" placeholder="Apellidos" name="last_name" value="{{ old('last_name') }}"/><span class="glyphicon glyphicon-plus form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="text" class="form-control" placeholder="CURP" name="curp"/><span class="glyphicon glyphicon-qrcode form-control-feedback"></span>
+					<input type="text" class="form-control" placeholder="CURP" name="curp" value="{{ old('curp') }}"/><span class="glyphicon glyphicon-qrcode form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
 					<select class="form-control" name="sex" id="">
@@ -43,13 +43,13 @@ Registro de Egresados
 					</select>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="date" class="form-control" placeholder="Fecha de Nacimiento" name="birthdate"/><span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+					<input type="date" class="form-control" placeholder="Fecha de Nacimiento" name="birthday" value="{{ old('birthday') }}"/><span class="glyphicon glyphicon-calendar form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="text" class="form-control" placeholder="Domicilio" name="address"/><span class="glyphicon glyphicon-home form-control-feedback"></span>
+					<input type="text" class="form-control" placeholder="Domicilio" name="address" value="{{ old('address') }}"/><span class="glyphicon glyphicon-home form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="text" class="form-control" placeholder="Teléfono" name="phone"/><span class="glyphicon glyphicon-phone form-control-feedback"></span>
+					<input type="text" class="form-control" placeholder="Teléfono" name="phone" value="{{ old('phone') }}"/><span class="glyphicon glyphicon-phone form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
 					<input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email" value="{{ old('email') }}"/><span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -72,7 +72,7 @@ Registro de Egresados
 					<button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.register') }}</button>
 				</div>
 			</div>
-		</form>
+		{!! Form::close() !!}
 
 		<a href="{{ url('/login') }}" class="text-center">{{ trans('adminlte_lang::message.membreship') }}</a>
 	</div><!-- /.form-box -->

@@ -11,6 +11,32 @@
 |
 */
 
+Route::get('/testing', function(){
+    $role = App\Role::where('name', 'graduate')->first();
+    echo $role->id;
+});
+
+Route::get('/roles', function() {
+    $owner = new App\Role();
+    $owner->name         = 'coordinador';
+    $owner->display_name = 'Usuario Coordinador'; // optional
+    $owner->description  = 'Coordinador del sistema con todos los privilegios'; // optional
+    $owner->save();
+
+    $admin = new App\Role();
+    $admin->name         = 'graduate';
+    $admin->display_name = 'Usuario Egresado'; // optional
+    $admin->description  = 'Egresado el cual hara uso de los servicios de SEDSC'; // optional
+    $admin->save();
+
+    $admin = new App\Role();
+    $admin->name         = 'company';
+    $admin->display_name = 'Usuario Empresa'; // optional
+    $admin->description  = 'Empresa la cual podra publicar sus vacantes en SEDSC'; // optional
+    $admin->save();
+    echo "Listo";
+});
+/*============== Main Routes ==============*/
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,10 +52,6 @@ Route::get('/register-company', function(){
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('/testing', function(){
-	return view('front-end.index');
-});
 
 Route::get('/graduates', function(){
 	return view('front-end.graduates');
@@ -50,8 +72,7 @@ Route::get('/organization', function(){
 Route::get('/academic', function(){
 	return view('front-end.academic');
 });
-
-
+/*============== End Main Routes ==============*/
 
 Route::resource('companies', 'CompanyController');
 

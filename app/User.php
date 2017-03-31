@@ -37,6 +37,7 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Company');
     }
+    
     public function graduate()
     {
         return $this->hasOne('App\Models\Graduate');
