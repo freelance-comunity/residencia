@@ -9,10 +9,14 @@ use Response;
 use Flash;
 use Schema;
 use App\User;
+use App\Role;
 use Alert;
+use Hash;
+use Illuminate\Support\Facades\Input;
+use Auth;
 
 class GraduateController extends AppBaseController
-{
+{	
 
 	/**
 	 * Display a listing of the Post.
@@ -64,12 +68,25 @@ class GraduateController extends AppBaseController
 	public function store(CreateGraduateRequest $request)
 	{
         $input = $request->all();
-        
+        /*==== Create User for Graduate ====*/
+        $role = Role::where('name', 'graduate')->first();
+        $data['name'] = $request->input('name').' '.$request->input('last_name');
+		$data['email'] = $request->input('email');
+		$data['password'] = Hash::make($request->input('password'));
+		$usercreate = User::create($data);
+		$id = $usercreate->id;
+		$user = User::find($id);
+		$email = $user->email;
+		$password = $user->password;
+		$user->attachRole($role);
+		$input['user_id'] = $id;
+        /*==== End Create User for Graduate ====*/
 		$graduate = Graduate::create($input);
 
-		Flash::message('Graduate saved successfully.');
+		Auth::login($user);
+        return redirect('/home');
 
-		return redirect(route('graduates.index'));
+		
 	}
 
 	/**
