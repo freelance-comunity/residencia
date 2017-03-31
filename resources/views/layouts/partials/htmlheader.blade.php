@@ -16,6 +16,9 @@
     -->
     <link href="{{ asset('/css/skins/skin-blue.css') }}" rel="stylesheet" type="text/css" />
      <link href="{{ asset('/css/skins/skin-red.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset('/css/skins/skin-black.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset('/css/skins/skin-yellow.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset('/css/skins/skin-purple.css') }}" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
     <!-- DataTables -->
