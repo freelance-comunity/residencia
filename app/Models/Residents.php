@@ -17,7 +17,9 @@ class Residents extends Model
 		"students",
 		"applicant",
 		"email",
-		"period"
+		"period",
+		"company_id"
+
 	];
 
 	public static $rules = [
@@ -28,5 +30,11 @@ class Residents extends Model
 		"email" => "required",
 		"period" => "required"
 	];
+
+	public function company()
+	{
+		return $this->belongsTo('App\Models\Company');
+	}
+
 
 }

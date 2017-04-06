@@ -29,7 +29,15 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+@role('coordinador')
 <body class="skin-red sidebar-mini">
+@endrole
+@role('graduate')
+<body class="skin-purple sidebar-mini">
+@endrole
+@role('company')
+<body class="skin-yellow sidebar-mini">
+@endrole
 <div class="wrapper">
 
     @include('layouts.partials.mainheader')

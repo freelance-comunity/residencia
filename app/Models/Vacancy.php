@@ -32,6 +32,7 @@ class Vacancy extends Model
 		"contact" => "required",
 		"period" => "required"
 	];
+	
 	public function company()
 	{
 		return $this->belongsTo('App\Models\Company');

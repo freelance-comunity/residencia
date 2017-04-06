@@ -29,7 +29,7 @@
                     <tbody>
                      
                     @foreach($vacancies as $vacancy)
-                    @can('read-vacancies', $vacancy)
+                  
                         <tr>
                             <td>{!! $vacancy->position !!}</td>
 					<td>{!! $vacancy->task !!}</td>
@@ -43,7 +43,7 @@
                                 <a href="{!! route('vacancies.delete', [$vacancy->id]) !!}" onclick="return confirm('Are you sure wants to delete this Vacancy?')"><i class="glyphicon glyphicon-remove"></i></a>
                             </td>
                         </tr>
-                        @endcan
+                       
                     @endforeach
                     </tbody>
                 </table>
