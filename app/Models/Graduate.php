@@ -40,4 +40,15 @@ class Graduate extends Model
 		return $this->belongsTo('App\User');
 	}
 
+	public function labor()
+    {
+        return $this->hasOne('App\Models\Labor');
+
+    }
+
+    public function poll()
+    {
+    	return $this->hasOne('App\Models\Poll');
+    }
+
 }

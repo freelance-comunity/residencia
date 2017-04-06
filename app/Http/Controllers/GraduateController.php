@@ -136,7 +136,7 @@ class GraduateController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function update($id, CreateGraduateRequest $request)
+	public function update($id, Request $request)
 	{
 		/** @var Graduate $graduate */
 		$graduate = Graduate::find($id);
@@ -150,9 +150,10 @@ class GraduateController extends AppBaseController
 		$graduate->fill($request->all());
 		$graduate->save();
 
-		Flash::message('Graduate updated successfully.');
+		Alert::success('Datos actualizados exitosamente.');
 
-		return redirect(route('graduates.index'));
+		return view('graduates.datagraduate')
+            ->with('graduate', $graduate);
 	}
 
 	/**
@@ -178,5 +179,13 @@ class GraduateController extends AppBaseController
 		Flash::message('Graduate deleted successfully.');
 
 		return redirect(route('graduates.index'));
+	}
+
+	public function data($id)
+	{
+		$user = User::find($id);
+		$graduate = $user->graduate;
+		return view('graduates.datagraduate')
+            ->with('graduate', $graduate);
 	}
 }

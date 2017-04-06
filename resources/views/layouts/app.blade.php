@@ -33,6 +33,9 @@ desired effect
 <body class="skin-red sidebar-mini">
 @endrole
 @role('graduate')
+<body class="skin-black sidebar-mini">
+@endrole
+@role('company')
 <body class="skin-purple sidebar-mini">
 @endrole
 <div class="wrapper">

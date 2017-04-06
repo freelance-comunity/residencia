@@ -75,11 +75,11 @@
                 <li class="treeview">
                     <a href="#"><i class='fa fa-database'></i> <span>Mis datos</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Datos personales</a></li>
-                        <li><a href="#">Datos laborales</a></li>
+                        <li><a href="{{ url('viewdata') }}/{{ Auth::user()->id }}">Datos personales</a></li>
+                        <li><a href="{!! route('labors.create') !!}">Datos laborales</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class='fa fa-line-chart'></i> <span>Encuesta de seguimiento</span></a></li>
+                <li><a href="{!! route('polls.create') !!}"><i class='fa fa-line-chart'></i> <span>Encuesta de seguimiento</span></a></li>
                 <li><a href="#"><i class='fa fa-comment'></i> <span>Solicitar cita</span></a></li>
                     <li class="treeview">
                         <a href="#"><i class='fa fa-graduation-cap'></i> <span>Educación continua</span> <i class="fa fa-angle-left pull-right"></i></a>

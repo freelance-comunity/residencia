@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+	Inicio
+@endsection
 @section('htmlheader_title')
 	Home
 @endsection

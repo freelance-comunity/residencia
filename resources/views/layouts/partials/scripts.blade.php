@@ -6,7 +6,8 @@
 <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/app.min.js') }}" type="text/javascript"></script>
-
+<!-- Bootstrap Form Helpers -->
+    <script src="{{ asset('/form-helpers/js/bootstrap-formhelpers.min.js') }}"></script>
 <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 <script>
@@ -18,6 +19,14 @@
 			}
 		});
 	});
+</script>
+
+<script>
+    $('.datepicker').datepicker({
+        format: "dd/mm/yyyy",
+        language: "es",
+        autoclose: true
+    });
 </script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance the
