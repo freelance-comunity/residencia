@@ -18,7 +18,9 @@ class Vacancy extends Model
 		"area",
 		"salary",
 		"contact",
-		"period"
+		"period",
+		"company_id"
+
 	];
 
 	public static $rules = [
@@ -30,6 +32,7 @@ class Vacancy extends Model
 		"contact" => "required",
 		"period" => "required"
 	];
+	
 	public function company()
 	{
 		return $this->belongsTo('App\Models\Company');

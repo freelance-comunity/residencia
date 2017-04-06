@@ -81,11 +81,11 @@ class CompanyController extends AppBaseController
 		$user->attachRole($role);
 		$input['user_id'] = $id;
         /*==== End Create User for Graduate ====*/
-		$company = Company::create($input);
+		$company = Company::create($input);  
 
 		Auth::login($user);
         return redirect('/home');
-	}
+	}  
 
 	/**
 	 * Display the specified Company.

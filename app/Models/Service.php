@@ -15,7 +15,8 @@ class Service extends Model
 	    "task",
 		"area",
 		"contact",
-		"period"
+		"period",
+		"company_id"
 	];
 
 	public static $rules = [
@@ -24,5 +25,11 @@ class Service extends Model
 		"contact" => "required",
 		"period" => "required"
 	];
+
+	public function company()
+	{
+		return $this->belongsTo('App\Models\Company');
+	}
+
 
 }

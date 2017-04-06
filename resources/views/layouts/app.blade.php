@@ -38,6 +38,9 @@ desired effect
 @role('company')
 <body class="skin-purple sidebar-mini">
 @endrole
+@role('company')
+<body class="skin-yellow sidebar-mini">
+@endrole
 <div class="wrapper">
 
     @include('layouts.partials.mainheader')

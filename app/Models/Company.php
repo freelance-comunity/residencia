@@ -45,5 +45,13 @@ class Company extends Model
     {
         return $this->hasOne('App\Models\Vacancy');
     }
+    public function service()
+    {
+        return $this->hasOne('App\Models\Service');
+    }
+    public function residents()
+    {
+        return $this->hasOne('App\Models\Residents');
+    }
 
 }
