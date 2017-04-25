@@ -12,7 +12,7 @@ Home
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
+				<div class="panel-heading">Chat</div>
 
 				<div class="panel-body">
 					@foreach($users as $user)
@@ -23,7 +23,7 @@ Home
 								{{$user->name}}
 							</td>
 							<td>
-								<a href="{{route('message.read', ['id'=>$user->id])}}" class="btn btn-success pull-right">Send Message</a>
+								<a href="{{route('message.read', ['id'=>$user->id])}}" class="btn btn-success pull-right">Enviar mensaje</a>
 							</td>
 						</tr>
 					</table>
