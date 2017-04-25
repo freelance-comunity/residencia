@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
       <meta name="csrf-token" content="{{csrf_token()}}">
-    <title>Talk Message</title>
+    <title>Chat</title>
     
     
     <link rel="stylesheet" href="{{asset('chat/css/reset.css')}}">
@@ -20,7 +20,7 @@
   <body>
 <div class="header">
     <div class="container header-brand">
-        <a href="{{url('/home')}}" class="brand">Talk Message</a>
+        <a href="{{url('/home')}}" class="brand">Regresar al panel</a>
     </div>
 </div>
       <div class="container clearfix body">
@@ -33,7 +33,7 @@
         @endif
         <div class="chat-about">
             @if(isset($user))
-                <div class="chat-with">{{'Chat with ' . @$user->name}}</div>
+                <div class="chat-with">{{'Chat con ' . @$user->name}}</div>
             @else
                 <div class="chat-with">No Thread Selected</div>
             @endif
@@ -45,9 +45,9 @@
       
       <div class="chat-message clearfix">
       <form action="" method="post" id="talkSendMessage">
-            <textarea name="message-data" id="message-data" placeholder ="Type your message" rows="3"></textarea>
+            <textarea name="message-data" id="message-data" placeholder ="Escribe tu mensaje..." rows="3"></textarea>
             <input type="hidden" name="_id" value="{{@request()->route('id')}}">
-            <button type="submit">Send</button>
+            <button type="submit">Enviar</button>
       </form>
 
       </div> <!-- end chat-message -->
