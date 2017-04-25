@@ -1,9 +1,10 @@
 <?php
 
 namespace App;
-
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use YoHang88\LetterAvatar\LetterAvatar;
 
 class User extends Authenticatable
 {   
@@ -14,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+    'name', 'email', 'password',
     ];
 
     /**
@@ -23,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+    'password', 'remember_token',
     ];
 
      //establecemos las relaciones con el modelo Role, ya que un usuario puede tener varios roles
@@ -41,6 +42,12 @@ class User extends Authenticatable
     public function graduate()
     {
         return $this->hasOne('App\Models\Graduate');
+
+    }
+
+    public function getAvatarAttribute()
+    {
+        return new LetterAvatar($this->name);
 
     }
 }

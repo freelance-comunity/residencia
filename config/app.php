@@ -174,7 +174,9 @@ return [
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
-        'Mitul\Generator\GeneratorServiceProvider'
+        'Mitul\Generator\GeneratorServiceProvider',
+
+        Nahid\Talk\TalkServiceProvider::class,
 
 
 
@@ -240,6 +242,8 @@ return [
     'Flash' => 'Laracasts\Flash\Flash',
 
     'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+
+    'Talk'      => Nahid\Talk\Facades\Talk::class,
 
     ],
 
