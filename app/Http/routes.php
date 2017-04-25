@@ -72,45 +72,67 @@ Route::get('/organization', function(){
 Route::get('/academic', function(){
 	return view('front-end.academic');
 });
-/*============== End Main Routes ==============*/
-
-Route::resource('companies', 'CompanyController');
-
-Route::get('companies/{id}/delete', [
-    'as' => 'companies.delete',
-    'uses' => 'CompanyController@destroy',
-]);
-
-
-Route::resource('vacancies', 'VacancyController');
-
-Route::get('vacancies/{id}/delete', [
-    'as' => 'vacancies.delete',
-    'uses' => 'VacancyController@destroy',
-]);
-
-
-Route::resource('residents', 'ResidentsController');
-
-Route::get('residents/{id}/delete', [
-    'as' => 'residents.delete',
-    'uses' => 'ResidentsController@destroy',
-]);
-
-
-Route::resource('services', 'ServiceController');
-
-Route::get('services/{id}/delete', [
-    'as' => 'services.delete',
-    'uses' => 'ServiceController@destroy',
-]);
 
 Route::resource('graduates', 'GraduateController');
 
-Route::get('graduates/{id}/delete', [
+ Route::get('/viewdata/{id}', 'GraduateController@data');
+
+ Route::get('graduates/{id}/delete', [
     'as' => 'graduates.delete',
     'uses' => 'GraduateController@destroy',
 
+    ]);
+
+ Route::resource('companies', 'CompanyController');
+
+ Route::get('companies/{id}/delete', [
+    'as' => 'companies.delete',
+    'uses' => 'CompanyController@destroy',
+    ]);
+/*============== End Main Routes ==============*/
+Route::group(['middleware' => 'auth'], function(){
+
+ Route::resource('labors', 'LaborController');
+
+ Route::get('labors/{id}/delete', [
+    'as' => 'labors.delete',
+    'uses' => 'LaborController@destroy',
+    ]);
+
+
+ Route::resource('vacancies', 'VacancyController');
+
+ Route::get('vacancies/{id}/delete', [
+    'as' => 'vacancies.delete',
+    'uses' => 'VacancyController@destroy',
+    ]);
+
+
+ Route::resource('residents', 'ResidentsController');
+
+ Route::get('residents/{id}/delete', [
+    'as' => 'residents.delete',
+    'uses' => 'ResidentsController@destroy',
+    ]);
+
+
+ Route::resource('services', 'ServiceController');
+
+ Route::get('services/{id}/delete', [
+    'as' => 'services.delete',
+    'uses' => 'ServiceController@destroy',
+    ]);
+});
+
+
+
+
+
+Route::resource('polls', 'PollController');
+
+Route::get('polls/{id}/delete', [
+    'as' => 'polls.delete',
+    'uses' => 'PollController@destroy',
 ]);
 
 /*============== Administrator ==============*/

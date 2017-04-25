@@ -27,6 +27,15 @@
     <!-- SweetAlerts -->
     <link rel="stylesheet" href="{{ asset('/sweetalert/sweetalert.css') }}">
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+    <!-- Form Helpers -->
+    <link rel="stylesheet" href="{{ asset('/form-helpers/css/bootstrap-formhelpers.min.css') }}">
+    <!-- datePicker -->
+    <!-- Datepicker Files -->
+    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap-datepicker.standalone.css')}}">
+    <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
+    <!-- Languaje -->
+    <script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
