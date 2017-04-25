@@ -23,6 +23,7 @@ class CreateVacanciesTable extends Migration
 			$table->string('salary');
 			$table->string('contact');
 			$table->string('period');
+			$table->string('avatar')->default('default.jpg');
 			$table->integer('company_id')->unsigned()->foreign('company_id')->references('id')->on('companies');
 			$table->timestamps();
 		});

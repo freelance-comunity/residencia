@@ -194,51 +194,29 @@ INICIO
                     haz que tu currículum sea visible para miles de empresas en nuestra bolsa de trabajo.</p>
                 </div>
             </div>
+            @php
+                $vacancy = App\Models\Vacancy::all();
+            @endphp
+             
             <div class="row">
+            @foreach ($vacancy as $element)
                 <div class="col-md-6 animate-box">
                     <div class="course">
+                   
                         <a href="#" class="course-img" style="background-image: url(images/factory_1.jpg);">
                         </a>
                         <div class="desc">
-                            <h3><a href="#">Programador Senior PHP</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                            <h3><a href="#">{{ $element->position}}</a></h3>
+                            <p>{{$element->task}}</p>
                             <span><a href="#" class="btn btn-primary btn-sm btn-course">Postularme</a></span>
                         </div>
+                       
                     </div>
                 </div>
-                <div class="col-md-6 animate-box">
-                    <div class="course">
-                        <a href="#" class="course-img" style="background-image: url(images/factory_2.jpg);">
-                        </a>
-                        <div class="desc">
-                            <h3><a href="#">Ingeniero de Pruebas</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                            <span><a href="#" class="btn btn-primary btn-sm btn-course">Postularme</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="course">
-                        <a href="#" class="course-img" style="background-image: url(images/factory_3.png);">
-                        </a>
-                        <div class="desc">
-                            <h3><a href="#">Desarrollador Mobile</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                            <span><a href="#" class="btn btn-primary btn-sm btn-course">Postularme</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="course">
-                        <a href="#" class="course-img" style="background-image: url(images/factory_4.jpg);">
-                        </a>
-                        <div class="desc">
-                            <h3><a href="#">Desarrollador Backend Web</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                            <span><a href="#" class="btn btn-primary btn-sm btn-course">Postularme</a></span>
-                        </div>
-                    </div>
-                </div>
+               
+                
+                
+                 @endforeach
             </div>
         </div>
     </div>

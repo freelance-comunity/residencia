@@ -107,6 +107,8 @@ Route::group(['middleware' => 'auth'], function(){
     'uses' => 'VacancyController@destroy',
     ]);
 
+ Route::get('image', 'VacancyController@image');
+
 
  Route::resource('residents', 'ResidentsController');
 
