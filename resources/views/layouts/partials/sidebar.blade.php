@@ -8,7 +8,7 @@
         @if (! Auth::guest())
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
+                <img src="{{Auth::user()->avatar}}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
                 <p>{{ Auth::user()->name }}</p>
@@ -68,6 +68,7 @@
                     </ul>
                 </li>
                 <li class="active"><a href="{{ url('home') }}"><i class='fa fa-calendar '></i> <span>Eventos</span></a></li>
+                <li><a href="{{ url('chatgraduates') }}"><i class='fa fa-comment'></i> <span>Chat</span></a></li>
                 @endrole
 
                 @role('company')
@@ -85,7 +86,7 @@
                     </ul>
                 </li>
                 <li><a href="{!! route('polls.create') !!}"><i class='fa fa-line-chart'></i> <span>Encuesta de seguimiento</span></a></li>
-                <li><a href="#"><i class='fa fa-comment'></i> <span>Solicitar cita</span></a></li>
+                <li><a href="{{ url('adminchat') }}"><i class='fa fa-comment'></i> <span>Iniciar Chat</span></a></li>
                     <li class="treeview">
                         <a href="#"><i class='fa fa-graduation-cap'></i> <span>Educación continua</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">

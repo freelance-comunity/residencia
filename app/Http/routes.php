@@ -142,3 +142,27 @@ Route::get('polls/{id}/delete', [
 Route::get('allgraduates', 'AdminController@graduates');
 Route::get('create-graduate', 'AdminController@createGraduate');
 Route::post('create-graduate', 'AdminController@storeGraduate');
+
+/*
+** Routes Chat
+*/
+Route::get('adminchat', function() {
+    $role = App\Role::where('name', 'coordinador')->first();
+    $users = $role->users; 
+    return view('chat.users')
+    ->with('users', $users);
+});
+
+Route::get('chatgraduates', function() {
+    $role = App\Role::where('name', 'graduate')->first();
+    $users = $role->users; 
+    return view('chat.users')
+    ->with('users', $users);
+});
+
+Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
+
+Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
+   Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+   Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+});
