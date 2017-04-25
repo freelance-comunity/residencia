@@ -25,11 +25,10 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             @role('coordinador')
-            <li><a href="#"><i class='fa fa-users'></i> <span>Crear Usuarios</span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-user'></i> <span>Usuarios Existentes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-users'></i> <span>Usuarios Existentes</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Egresados</a></li>
+                    <li><a href="{{ url('allgraduates') }}">Egresados</a></li>
                     <li><a href="#">Empresas</a></li>
                     <li><a href="#">Docentes</a></li>
                 </ul>

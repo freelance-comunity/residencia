@@ -112,3 +112,11 @@ Route::get('graduates/{id}/delete', [
     'uses' => 'GraduateController@destroy',
 
 ]);
+
+/*============== Administrator ==============*/
+/*
+* Module Graduate for Administrator
+*/
+Route::get('allgraduates', 'AdminController@graduates');
+Route::get('create-graduate', 'AdminController@createGraduate');
+Route::post('create-graduate', 'AdminController@storeGraduate');

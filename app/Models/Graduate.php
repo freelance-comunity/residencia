@@ -35,6 +35,17 @@ class Graduate extends Model
 	'terms' => "required",
 	];
 
+	public static $rulesAdmin = [
+	'name' => 'required|max:255',
+	"last_name" => "required",
+	"curp" => "required",
+	"sex" => "required",
+	"birthday" => "required",
+	"address" => "required",
+	"phone" => "required",
+	'email' => 'required|email|max:255|unique:users'
+	];
+
 	public function user()
 	{
 		return $this->belongsTo('App\User');
