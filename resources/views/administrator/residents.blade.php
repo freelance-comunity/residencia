@@ -8,7 +8,7 @@
 
     <div class="row">
         <h1 class="pull-left">Residentes</h1>
-        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('residents.create') !!}">Agregar nuevo</a>
+       
     </div>
 
     <div class="row">

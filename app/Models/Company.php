@@ -37,6 +37,18 @@ class Company extends Model
 		'terms' => "required",
 	];
 
+	public static $rulesAdmin = [
+	    "name" => "required",
+		"sector" => "required",
+		"rfc" => "required",
+		"address" => "required",
+		"phone" => "required",
+		"director" => "required",
+		"contact" => "required",
+		"period" => "required",
+		'email' => 'required|email|max:255|unique:users',
+		
+	];
 	public function user()
 	{
 		return $this->belongsTo('App\User');

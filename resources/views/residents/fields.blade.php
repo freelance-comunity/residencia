@@ -12,8 +12,8 @@
 
 <!--- Students Field --->
     <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('students', 'Alumnos a Solicitar:') !!} <br>
-    {!! Form::select('students', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'] ) !!}
+    {!! Form::label('students', 'Alumnos a Solicitar:') !!} 
+    {!! Form::select('students', ['1' => '1', '2' => '2', '3' => '3','4' => '4','5' => '5'],null,['class'=>'form-control'] ) !!}
 </div><br>
 
 <!--- Applicant Field --->
@@ -43,5 +43,5 @@
 
 <!--- Submit Field --->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('guardar', ['class' => 'appercase btn btn-primary']) !!}
 </div>

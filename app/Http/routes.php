@@ -107,7 +107,7 @@ Route::group(['middleware' => 'auth'], function(){
     'uses' => 'VacancyController@destroy',
     ]);
 
- Route::get('image', 'VacancyController@image');
+ Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 
 
  Route::resource('residents', 'ResidentsController');
@@ -145,6 +145,14 @@ Route::get('allgraduates', 'AdminController@graduates');
 Route::get('create-graduate', 'AdminController@createGraduate');
 Route::post('create-graduate', 'AdminController@storeGraduate');
 
+
+Route::get('allcompanies', 'AdminController@companies');
+Route::get('create-company', 'AdminController@createCompany');
+Route::post('create-company', 'AdminController@storeCompany');
+
+Route::get('allservices', 'AdminController@services');
+Route::get('allresidents', 'AdminController@residents');
+Route::get('allvacancies', 'AdminController@vacancies');
 /*
 ** Routes Chat
 */

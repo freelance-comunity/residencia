@@ -9,6 +9,7 @@ use Response;
 use Flash;
 use Schema;
 use Alert;
+use Auth;
 
 class VacancyController extends AppBaseController
 {
@@ -62,13 +63,17 @@ class VacancyController extends AppBaseController
 	 */
 	public function store(CreateVacancyRequest $request)
 	{
-        $input = $request->all();
+
+        $user = Auth::user();
+		$company = $user->company;
+		$input = $request->all();
+		$input['company_id'] = $company->id;
 
 		$vacancy = Vacancy::create($input);
 
 		Alert::success('Solicitud de Vacantes Generada Exitosamente!')->persistent("Cerrar");
 
-		return redirect(route('vacancies.index'));
+		return redirect(route('vacancies.index'));		
 	}
 
 	/**
@@ -160,5 +165,9 @@ class VacancyController extends AppBaseController
 		Alert::success('Solicitud Eliminada Exitosamente!')->persistent("Cerrar");
 
 		return redirect(route('vacancies.index'));
+	}
+
+	public function vacancyphoto(){
+		return view ('vacancies.upload', array('vacancy'));
 	}
 }

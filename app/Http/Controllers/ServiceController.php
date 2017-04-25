@@ -9,6 +9,7 @@ use Response;
 use Flash;
 use Schema;
 use Alert;
+use Auth;
 
 class ServiceController extends AppBaseController
 {
@@ -62,7 +63,10 @@ class ServiceController extends AppBaseController
 	 */
 	public function store(CreateServiceRequest $request)
 	{
-        $input = $request->all();
+         $user = Auth::user();
+		$company = $user->company;
+		$input = $request->all();
+		$input['company_id'] = $company->id;
 
 		$service = Service::create($input);
 

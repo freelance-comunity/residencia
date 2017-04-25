@@ -9,6 +9,7 @@ use Response;
 use Flash;
 use Schema;
 use Alert;
+use Auth;
 
 class ResidentsController extends AppBaseController
 {
@@ -62,9 +63,12 @@ class ResidentsController extends AppBaseController
 	 */
 	public function store(CreateResidentsRequest $request)
 	{
-        $input = $request->all();
+        $user = Auth::user();
+		$company = $user->company;
+		$input = $request->all();
+		$input['company_id'] = $company->id;
 
-		$residents = Residents::create($input);
+		$resident = Residents::create($input);
 
 		Alert::success('Solicitud de Residentes Generada Exitosamente!')->persistent("Cerrar");
 
