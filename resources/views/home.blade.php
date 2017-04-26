@@ -1,26 +1,25 @@
 @extends('layouts.app')
 @section('title')
-	Inicio
+Inicio
 @endsection
 @section('htmlheader_title')
-	Home
+Home
 @endsection
 
 
 @section('main-content')
-	<div class="container spark-screen">
+<div class="container spark-screen">
+	<div class="row">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="panel panel-default">
-					<div class="panel-heading">Home</div>
-
-					<div class="panel-body">
-						@role('graduate')
-							Bienvenido egresado
-						@endrole
-					</div>
-				</div>
-			</div>
+			@role('coordinador')
+				@include('partials.home-admin')
+			@endrole
+			@role('graduate')
+				@include('partials.home-graduate')
+			@endrole
+			<!-- /.col -->
 		</div>
+		<!-- /.row -->
 	</div>
+</div>
 @endsection

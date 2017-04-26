@@ -12,8 +12,14 @@
 */
 
 Route::get('/testing', function(){
-    $role = App\Role::where('name', 'graduate')->first();
-    echo $role->id;
+    $inboxes = Talk::user(auth()->user()->id)->getInbox();
+    foreach ($inboxes as $inbox) {
+        echo "<h2>". $inbox->withUser->name. "</h2>";
+        echo "<br>";
+        echo "<p>". $inbox->thread->message. "</p>";
+        echo "<span>". $inbox->thread->humans_time. "</span>";
+        echo "<hr>";
+    }
 });
 
 Route::get('/roles', function() {
