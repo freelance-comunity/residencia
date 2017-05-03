@@ -197,9 +197,7 @@ INICIO
             </div>
             @php
             $vacancy = App\Models\Vacancy::all();
-            $company = App\Models\Company::all();
             @endphp
-
             <div class="row ">
                 @foreach ($vacancy as $element)
                 <div class="col-md-6 animate-box">
@@ -209,7 +207,7 @@ INICIO
                         </a>
                         <div class="desc">
                            
-                            <h1> {{ $element->company->name}}</h1>
+                            <!--<h1> {{ $element->company->name}}</h1>-->
                      
                             <h3><a href="#">{{ $element->position}}</a></h3>
                             <p>{{$element->task}}</p>
