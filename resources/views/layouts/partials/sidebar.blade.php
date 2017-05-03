@@ -87,18 +87,18 @@
                 </li>
                 <li><a href="{!! route('polls.create') !!}"><i class='fa fa-line-chart'></i> <span>Encuesta de seguimiento</span></a></li>
                 <li><a href="{{ url('adminchat') }}"><i class='fa fa-comment'></i> <span>Iniciar Chat</span></a></li>
-                    <li class="treeview">
-                        <a href="#"><i class='fa fa-graduation-cap'></i> <span>Educación continua</span> <i class="fa fa-angle-left pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="#">Cursos</a></li>
-                            <li><a href="#">Diplomados</a></li>
-                            <li><a href="#">Talleres</a></li>
-                            <li><a href="#">Conferencias</a></li>
-                            <li><a href="#">Eventos</a></li>
-                        </ul>
-                    </li>
-                     <li><a href="#"><i class='fa fa-briefcase'></i> <span>Bolsa de trabajo</span></a></li>
-                    @endrole
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-graduation-cap'></i> <span>Educación continua</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Diplomados</a></li>
+                        <li><a href="#">Talleres</a></li>
+                        <li><a href="#">Conferencias</a></li>
+                        <li><a href="#">Eventos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class='fa fa-briefcase'></i> <span>Bolsa de trabajo</span></a></li>
+                @endrole
             </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

@@ -185,7 +185,7 @@ class GraduateController extends AppBaseController
 	{
 		$user = User::find($id);
 		$graduate = $user->graduate;
-		return view('graduates.datagraduate')
+		return view('graduates.show')
             ->with('graduate', $graduate);
 	}
 }
