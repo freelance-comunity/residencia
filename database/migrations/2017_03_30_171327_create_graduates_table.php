@@ -22,7 +22,7 @@ class CreateGraduatesTable extends Migration
 			$table->string('sex');
 			$table->date('birthday');
 			$table->string('address');
-			$table->integer('phone');
+			$table->string('phone');
 			$table->integer('user_id')->unsigned()->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
 		});
