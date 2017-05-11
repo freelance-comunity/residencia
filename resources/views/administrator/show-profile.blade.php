@@ -90,7 +90,7 @@ Mis datos
 											<div class="timeline-item">
 												<span class="time"> Creado el: {{$graduate->created_at}}</span>
 												@if(is_null($graduate->labor))
-												<h3 class="timeline-header"><a href="{!! route('labors.create') !!}">Datos Laborales</a></h3>
+												<h3 class="timeline-header"><a href="#">Datos Laborales</a></h3>
 												<div class="well text-center">Aún no se han registrado datos laborales.</div>	
 												@else
 												<h3 class="timeline-header"><a>Datos Laborales</a></h3>					
@@ -108,6 +108,7 @@ Mis datos
 										</li>
 									</ul>
 								</ul>
+								<a href="" class="uppercase btn bg-navy"><span class="fa fa-file-pdf-o"></span> descargar</a>
 							</div>
 							<!-- /.tab-pane -->
 						</div>

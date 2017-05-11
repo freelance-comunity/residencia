@@ -70,52 +70,52 @@ Route::get('/academic', function(){
 
 Route::resource('graduates', 'GraduateController');
 
- Route::get('/viewdata/{id}', 'GraduateController@data');
+Route::get('/viewdata/{id}', 'GraduateController@data');
 
- Route::get('graduates/{id}/delete', [
+Route::get('graduates/{id}/delete', [
     'as' => 'graduates.delete',
     'uses' => 'GraduateController@destroy',
 
     ]);
 
- Route::resource('companies', 'CompanyController');
+Route::resource('companies', 'CompanyController');
 
- Route::get('companies/{id}/delete', [
+Route::get('companies/{id}/delete', [
     'as' => 'companies.delete',
     'uses' => 'CompanyController@destroy',
     ]);
 /*============== End Main Routes ==============*/
 Route::group(['middleware' => 'auth'], function(){
 
- Route::resource('labors', 'LaborController');
+   Route::resource('labors', 'LaborController');
 
- Route::get('labors/{id}/delete', [
+   Route::get('labors/{id}/delete', [
     'as' => 'labors.delete',
     'uses' => 'LaborController@destroy',
     ]);
 
 
- Route::resource('vacancies', 'VacancyController');
+   Route::resource('vacancies', 'VacancyController');
 
- Route::get('vacancies/{id}/delete', [
+   Route::get('vacancies/{id}/delete', [
     'as' => 'vacancies.delete',
     'uses' => 'VacancyController@destroy',
     ]);
 
- Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
+   Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 
 
- Route::resource('residents', 'ResidentsController');
+   Route::resource('residents', 'ResidentsController');
 
- Route::get('residents/{id}/delete', [
+   Route::get('residents/{id}/delete', [
     'as' => 'residents.delete',
     'uses' => 'ResidentsController@destroy',
     ]);
 
 
- Route::resource('services', 'ServiceController');
+   Route::resource('services', 'ServiceController');
 
- Route::get('services/{id}/delete', [
+   Route::get('services/{id}/delete', [
     'as' => 'services.delete',
     'uses' => 'ServiceController@destroy',
     ]);
@@ -130,7 +130,7 @@ Route::resource('polls', 'PollController');
 Route::get('polls/{id}/delete', [
     'as' => 'polls.delete',
     'uses' => 'PollController@destroy',
-]);
+    ]);
 
 /*============== Administrator ==============*/
 /*
@@ -168,8 +168,8 @@ Route::get('chatgraduates', function() {
 Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
 
 Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
-   Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
-   Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+ Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+ Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
 
 Route::get('viewvacancies', function() {
@@ -184,4 +184,32 @@ Route::resource('periods', 'PeriodController');
 Route::get('periods/{id}/delete', [
     'as' => 'periods.delete',
     'uses' => 'PeriodController@destroy',
-]);
+    ]);
+
+Route::get('viewdatagraduate/{id}', function($id) {
+    $graduate = App\Models\Graduate::find($id);
+    $labor = $graduate->labor;
+
+    if(empty($graduate))
+    {
+        Flash::error('Graduate not found');
+        return redirect(route('graduates.index'));
+    }
+
+    return view('administrator.show-profile')
+    ->with('graduate', $graduate)
+    ->with('labor', $labor);
+});
+
+Route::get('viewtestgraduate/{id}', function($id) {
+    $graduate = App\Models\Graduate::find($id);
+
+    if(empty($graduate))
+    {
+        Flash::error('Graduate not found');
+        return redirect(route('graduates.index'));
+    }
+
+    return view('administrator.show-test')
+    ->with('graduate', $graduate);
+});

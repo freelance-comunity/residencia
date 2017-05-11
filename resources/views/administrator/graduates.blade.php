@@ -26,6 +26,7 @@ Egresados
                 <th>Fecha de Nacimiento</th>
                 <th>Dirección</th>
                 <th>Teléfono</th>
+                <th>Ver</th>
                 <th width="50px">Acción</th>
             </thead>
             <tbody>
@@ -39,6 +40,10 @@ Egresados
                     <td>{!! $graduate->birthday !!}</td>
                     <td>{!! $graduate->address !!}</td>
                     <td>{!! $graduate->phone !!}</td>
+                    <td>
+                        <a href="{!! url('viewdatagraduate', [$graduate->id]) !!}" class="btn btn-block bg-navy">Perfil</a>
+                        <a href="{!! url('viewtestgraduate', [$graduate->id]) !!}" class="btn btn-block bg-orange">Encuesta</a>
+                    </td>
                     <td>
                         <a href="{!! route('graduates.edit', [$graduate->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                         <a href="{!! route('graduates.delete', [$graduate->id]) !!}" onclick="return confirm('Are you sure wants to delete this Graduate?')"><i class="glyphicon glyphicon-remove"></i></a>
