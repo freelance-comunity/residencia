@@ -18,6 +18,9 @@
 						@role('graduate')
 							Bienvenido egresado
 						@endrole
+						@role('company')
+						Hola {{ Auth::user()->name }}
+						@endrole
 					</div>
 				</div>
 			</div>

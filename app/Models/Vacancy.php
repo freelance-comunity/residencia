@@ -18,6 +18,8 @@ class Vacancy extends Model
 		"area",
 		"salary",
 		"contact",
+		"phone",
+		"email",
 		"period",
 		"company_id"
 
@@ -30,6 +32,8 @@ class Vacancy extends Model
 		"area" => "required",
 		"salary" => "required",
 		"contact" => "required",
+		"phone" => "required",
+		"email" => "required",
 		"period" => "required"
 	];
 	

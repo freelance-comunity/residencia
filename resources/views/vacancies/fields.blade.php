@@ -30,9 +30,22 @@
 
 <!--- Contact Field --->
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('contact', 'Contacto:') !!}
+    {!! Form::label('contact', 'Nombre del Contacto:') !!}
     {!! Form::text('contact', null, ['class' => 'form-control']) !!}
 </div>
+
+<!--- phone Field --->
+<div class="form-group col-sm-6 col-lg-4">
+    {!! Form::label('phone', 'Teléfono del Contacto:') !!}
+    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+</div>
+
+<!--- email Field --->
+<div class="form-group col-sm-6 col-lg-4">
+    {!! Form::label('email', 'Correo del Contacto:') !!}
+    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+</div>
+
 
 <!--- Period Field --->
 <div class="form-group col-sm-6 col-lg-4">

@@ -55,15 +55,15 @@ class Company extends Model
 	}
 	public function vacancy()
     {
-        return $this->hasOne('App\Models\Vacancy');
+        return $this->hasMany('App\Models\Vacancy');
     }
     public function service()
     {
-        return $this->hasOne('App\Models\Service');
+        return $this->hasMany('App\Models\Service');
     }
     public function residents()
     {
-        return $this->hasOne('App\Models\Residents');
+        return $this->hasMany('App\Models\Residents');
     }
 
 }

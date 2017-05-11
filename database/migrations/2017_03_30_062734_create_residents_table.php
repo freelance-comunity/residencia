@@ -17,12 +17,17 @@ class CreateResidentsTable extends Migration
 		{
 			$table->increments('id');
 			$table->string('name_project');
+			$table->string('area');
 			$table->string('objective');
 			$table->string('students');
 			$table->string('applicant');
 			$table->string('address');
+			$table->string('contact');
+			$table->string('phone');
+			$table->string('cel');
 			$table->string('email');
 			$table->string('period');
+			$table->string('status');
 			$table->integer('company_id')->unsigned()->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
 			$table->timestamps();
 		});

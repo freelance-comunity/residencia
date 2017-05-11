@@ -6,14 +6,14 @@
 
         @include('flash::message')
 
-        <div class="row">
+       <!-- <div class="row">
             <h1 class="pull-left">Companies</h1>
             <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('companies.create') !!}">Add New</a>
-        </div>
+        </div>-->
 
         <div class="row">
             @if($companies->isEmpty())
-                <div class="well text-center">No Companies found.</div>
+                <div class="well text-center">No se encontraron Empresas</div>
             @else
                 <table class="table" id="myTable">
                     <thead>

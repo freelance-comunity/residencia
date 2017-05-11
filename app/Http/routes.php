@@ -89,6 +89,13 @@ Route::resource('graduates', 'GraduateController');
     'as' => 'companies.delete',
     'uses' => 'CompanyController@destroy',
     ]);
+  Route::get('view-company/{id}', function($id){
+      $user = App\User::find($id);
+      $company = $user->company;
+
+      return view('companies.show')
+      ->with('company', $company);
+    });
 /*============== End Main Routes ==============*/
 Route::group(['middleware' => 'auth'], function(){
 
@@ -106,6 +113,7 @@ Route::group(['middleware' => 'auth'], function(){
     'as' => 'vacancies.delete',
     'uses' => 'VacancyController@destroy',
     ]);
+
 
  Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 

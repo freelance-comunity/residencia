@@ -13,21 +13,33 @@ class Residents extends Model
 
 	public $fillable = [
 	    "name_project",
+	    "area",
 		"objective",
 		"students",
 		"applicant",
+		"address",
+		"contact",
+		"phone",
+		"cel",
 		"email",
 		"period",
+		"status",
 		"company_id"
 
 	];
 
 	public static $rules = [
 	    "name_project" => "required",
+	    "area" => "required",
 		"objective" => "required",
 		"students" => "required",
 		"applicant" => "required",
+		"address" => "required",
+		"contact" => "required",
+		"phone" => "required",
+		"cel" => "required",
 		"email" => "required",
+		"status" => "required",
 		"period" => "required"
 	];
 
