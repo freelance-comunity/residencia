@@ -40,6 +40,7 @@
 					<td>{!! $company->contact !!}</td>
 					<td>{!! $company->period !!}</td>
                             <td>
+                             
                                 <a href="{!! route('companies.edit', [$company->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                                 <a href="{!! route('companies.delete', [$company->id]) !!}" onclick="return confirm('Are you sure wants to delete this Company?')"><i class="glyphicon glyphicon-remove"></i></a>
                             </td>

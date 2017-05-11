@@ -206,9 +206,9 @@ INICIO
                         <a href="#" class="course-img" style="background-image: url(uploads/avatars/default.jpg);">
                         </a>
                         <div class="desc">
-                           
+
                             <!--<h1> {{ $element->company->name}}</h1>-->
-                     
+
                             <h3><a href="#">{{ $element->position}}</a></h3>
                             <p>{{$element->task}}</p>
                             <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModalLong{{$element->id}}">Ver más</button>
@@ -235,8 +235,52 @@ INICIO
 
         </div>
     </div>
+    @endforeach
+</div>
+
+@php
+$vacancyAdmins = App\Models\VacancyAdmin::all();
+@endphp
+<div class="row ">
+    @foreach ($vacancyAdmins as $vacancyAdmin)
+    <div class="col-md-6 animate-box">
+        <div class="course">
+
+            <a href="#" class="course-img" style="background-image: url(uploads/avatars/default.jpg);">
+            </a>
+            <div class="desc">
+
+                <!--<h1> {{ $element->company->name}}</h1>-->
+
+                <h3><a href="#">{{ $vacancyAdmin->position}}</a></h3>
+                <p>{{$vacancyAdmin->task}}</p>
+                <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModalLong{{$vacancyAdmin->id}}">Ver más</button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong{{$vacancyAdmin->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{ $vacancyAdmin->position}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                    {{$vacancyAdmin->abilities}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
 @endforeach
 </div>
+
 </div>
 </div>
 
