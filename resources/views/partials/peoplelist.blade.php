@@ -19,7 +19,7 @@
             </div>
             </a>
         </li>
-            @endif
+        @endif
         @endforeach
 
     </ul>

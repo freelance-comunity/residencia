@@ -37,6 +37,7 @@ Lista de solicitudes para:
                 <tbody>
 
                     @foreach($residents as $residents)
+                    
                     <tr>
                         <td>{!! $residents->name_project !!}</td>
                         <td>{!! $residents->area !!}</td>

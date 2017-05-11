@@ -28,24 +28,24 @@ class GraduateController extends AppBaseController
 	public function index(Request $request)
 	{
 		$query = Graduate::query();
-        $columns = Schema::getColumnListing('$TABLE_NAME$');
-        $attributes = array();
+		$columns = Schema::getColumnListing('$TABLE_NAME$');
+		$attributes = array();
 
-        foreach($columns as $attribute){
-            if($request[$attribute] == true)
-            {
-                $query->where($attribute, $request[$attribute]);
-                $attributes[$attribute] =  $request[$attribute];
-            }else{
-                $attributes[$attribute] =  null;
-            }
-        };
+		foreach($columns as $attribute){
+			if($request[$attribute] == true)
+			{
+				$query->where($attribute, $request[$attribute]);
+				$attributes[$attribute] =  $request[$attribute];
+			}else{
+				$attributes[$attribute] =  null;
+			}
+		};
 
-        $graduates = $query->get();
+		$graduates = $query->get();
 
-        return view('graduates.index')
-            ->with('graduates', $graduates)
-            ->with('attributes', $attributes);
+		return view('graduates.index')
+		->with('graduates', $graduates)
+		->with('attributes', $attributes);
 	}
 
 	/**
@@ -67,10 +67,10 @@ class GraduateController extends AppBaseController
 	 */
 	public function store(CreateGraduateRequest $request)
 	{
-        $input = $request->all();
-        /*==== Create User for Graduate ====*/
-        $role = Role::where('name', 'graduate')->first();
-        $data['name'] = $request->input('name').' '.$request->input('last_name');
+		$input = $request->all();
+		/*==== Create User for Graduate ====*/
+		$role = Role::where('name', 'graduate')->first();
+		$data['name'] = $request->input('name').' '.$request->input('last_name');
 		$data['email'] = $request->input('email');
 		$data['password'] = Hash::make($request->input('password'));
 		$usercreate = User::create($data);
@@ -80,11 +80,11 @@ class GraduateController extends AppBaseController
 		$password = $user->password;
 		$user->attachRole($role);
 		$input['user_id'] = $id;
-        /*==== End Create User for Graduate ====*/
+		/*==== End Create User for Graduate ====*/
 		$graduate = Graduate::create($input);
 
 		Auth::login($user);
-        return redirect('/home');
+		return redirect('/home');
 
 		
 	}
@@ -99,6 +99,7 @@ class GraduateController extends AppBaseController
 	public function show($id)
 	{
 		$graduate = Graduate::find($id);
+		$labor = $graduate->labor;
 
 		if(empty($graduate))
 		{
@@ -106,7 +107,9 @@ class GraduateController extends AppBaseController
 			return redirect(route('graduates.index'));
 		}
 
-		return view('graduates.show')->with('graduate', $graduate);
+		return view('graduates.show')
+		->with('graduate', $graduate)
+		->with('labor', $labor);
 	}
 
 	/**
@@ -152,8 +155,7 @@ class GraduateController extends AppBaseController
 
 		Alert::success('Datos actualizados exitosamente.');
 
-		return view('graduates.datagraduate')
-            ->with('graduate', $graduate);
+		return view('graduates.show')->with('graduate', $graduate);
 	}
 
 	/**
@@ -185,7 +187,9 @@ class GraduateController extends AppBaseController
 	{
 		$user = User::find($id);
 		$graduate = $user->graduate;
-		return view('graduates.datagraduate')
-            ->with('graduate', $graduate);
+		$labor = $graduate->labor;
+		return view('graduates.show')
+		->with('graduate', $graduate)
+		->with('labor', $labor);
 	}
 }

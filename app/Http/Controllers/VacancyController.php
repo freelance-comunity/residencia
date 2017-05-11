@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Requests\CreateVacancyRequest;
 use App\Models\Vacancy;
+use App\Models\Company;
+use App\User;
 use Illuminate\Http\Request;
 use Mitul\Controller\AppBaseController;
 use Response;
@@ -170,4 +172,5 @@ class VacancyController extends AppBaseController
 	public function vacancyphoto(){
 		return view ('vacancies.upload', array('vacancy'));
 	}
+
 }

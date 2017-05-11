@@ -129,4 +129,5 @@ class AdminController extends Controller
         ->with('vacancies', $vacancies); 
     }
 
+    
 }

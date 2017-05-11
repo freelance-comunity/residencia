@@ -31,7 +31,7 @@
 <!--- Sector Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('sector', 'Sector:') !!}
-    {!! Form::text('sector', null, ['class' => 'form-control']) !!}
+    {!! Form::select('sector', ['Primario' => 'Primario', 'Secundario' => 'Secundario', 'Terciario' => 'Terciario', 'Educativo' => 'Educativo'], null, ['class' => 'form-control'])!!}
 </div>
 
 

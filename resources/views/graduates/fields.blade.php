@@ -44,7 +44,7 @@
 <!--- Phone Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('phone', 'Teléfono:') !!}
-    <input name="phone" value="{{ $graduate->phone }}" type="text" class="form-control bfh-phone" data-format="+52 (ddd) ddd-dddd">
+    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 @else
 <div class="form-group col-sm-6 col-lg-4">

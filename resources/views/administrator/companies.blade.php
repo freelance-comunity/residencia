@@ -17,15 +17,15 @@
             @else
                 <table class="table" id="myTable">
                     <thead>
-                    <th>Name</th>
-			<th>Sector</th>
-			<th>Rfc</th>
-			<th>Address</th>
-			<th>Phone</th>
-			<th>Director</th>
-			<th>Contact</th>
-			<th>Period</th>
-                    <th width="50px">Action</th>
+                    <th>Nombre</th>
+                    <th>Sector</th>
+                    <th>RFC</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Director</th>
+                    <th>Contacto</th>
+                    <th>Periodo</th>
+                    <th width="50px">Acción</th>
                     </thead>
                     <tbody>
                      

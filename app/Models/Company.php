@@ -19,7 +19,6 @@ class Company extends Model
 		"phone",
 		"director",
 		"contact",
-		"period",
 		"user_id"
 	];
 
@@ -31,7 +30,6 @@ class Company extends Model
 		"phone" => "required",
 		"director" => "required",
 		"contact" => "required",
-		"period" => "required",
 		'email' => 'required|email|max:255|unique:users',
 		'password' => 'required|confirmed|min:6',
 		'terms' => "required",

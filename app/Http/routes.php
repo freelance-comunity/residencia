@@ -1,19 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 Route::get('/testing', function(){
-    $role = App\Role::where('name', 'graduate')->first();
-    echo $role->id;
+    $inboxes = Talk::user(auth()->user()->id)->getInbox();
+    foreach ($inboxes as $inbox) {
+        echo "<h2>". $inbox->withUser->name. "</h2>";
+        echo "<br>";
+        echo "<p>". $inbox->thread->message. "</p>";
+        echo "<span>". $inbox->thread->humans_time. "</span>";
+        echo "<hr>";
+    }
 });
 
 Route::get('/roles', function() {
@@ -112,8 +107,7 @@ Route::group(['middleware' => 'auth'], function(){
  Route::get('vacancies/{id}/delete', [
     'as' => 'vacancies.delete',
     'uses' => 'VacancyController@destroy',
-    ]);
-
+    ]); 
 
  Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 
@@ -154,6 +148,7 @@ Route::get('create-graduate', 'AdminController@createGraduate');
 Route::post('create-graduate', 'AdminController@storeGraduate');
 
 
+
 Route::get('allcompanies', 'AdminController@companies');
 Route::get('create-company', 'AdminController@createCompany');
 Route::post('create-company', 'AdminController@storeCompany');
@@ -184,3 +179,17 @@ Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
    Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
    Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
+
+Route::get('viewvacancies', function() {
+    $vacancies = App\Models\Vacancy::all();
+    return view('graduates.vacancies')
+    ->with('vacancies', $vacancies);
+});
+
+
+Route::resource('periods', 'PeriodController');
+
+Route::get('periods/{id}/delete', [
+    'as' => 'periods.delete',
+    'uses' => 'PeriodController@destroy',
+]);

@@ -63,7 +63,7 @@ class ServiceController extends AppBaseController
 	 */
 	public function store(CreateServiceRequest $request)
 	{
-         $user = Auth::user();
+        $user = Auth::user();
 		$company = $user->company;
 		$input = $request->all();
 		$input['company_id'] = $company->id;

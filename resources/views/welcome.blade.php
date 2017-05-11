@@ -197,9 +197,7 @@ INICIO
             </div>
             @php
             $vacancy = App\Models\Vacancy::all();
-            $company = App\Models\Company::all();
             @endphp
-
             <div class="row ">
                 @foreach ($vacancy as $element)
                 <div class="col-md-6 animate-box">
@@ -208,14 +206,14 @@ INICIO
                         <a href="#" class="course-img" style="background-image: url(uploads/avatars/default.jpg);">
                         </a>
                         <div class="desc">
-                        @foreach ($company as $companies)
-                        <h1> {{ $companies->name}}</h1>
-                        @endforeach
+                           
+                            <!--<h1> {{ $element->company->name}}</h1>-->
+                     
                             <h3><a href="#">{{ $element->position}}</a></h3>
                             <p>{{$element->task}}</p>
-                            <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModalLong">Ver más</button>
+                            <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModalLong{{$element->id}}">Ver más</button>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal fade" id="exampleModalLong{{$element->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -237,10 +235,7 @@ INICIO
 
         </div>
     </div>
-
-
-
-    @endforeach
+@endforeach
 </div>
 </div>
 </div>

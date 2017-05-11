@@ -26,8 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        $gate->define('read-vacancies', function($user, $vacancy){
-            return $user->id === $vacancy->user_id;
+        $gate->define('read-vacancies', function($company, $vacancy){
+            return $company->id === $vacancy->company_id;
         });
     }
 }

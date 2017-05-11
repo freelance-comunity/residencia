@@ -83,8 +83,8 @@ class LaborController extends AppBaseController
 
 		Alert::success('Tus datos laborales han sido guardados exitosamente.');
 
-		return view('labors.labordata')
-			->with('labor', $labor);
+		return view('graduates.show')
+			->with('graduate', $graduate);
 	}
 
 	/**
@@ -150,8 +150,7 @@ class LaborController extends AppBaseController
 
 		Alert::success('Datos Laborales Actualizados.');
 
-		return view('labors.labordata')
-			->with('labor', $labor);
+		return view('graduates.show')->with('graduate', $labor->graduate);
 	}
 
 	/**

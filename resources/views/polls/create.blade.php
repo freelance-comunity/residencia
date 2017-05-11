@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title')
-	Encuesta
+@section('contentheader_title')
+Lllenar Encuesta de Seguimiento
 @endsection
 @section('main-content')
 <div class="container">

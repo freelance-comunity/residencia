@@ -58,9 +58,9 @@ Registro de Empresas
 				<div class="form-group has-feedback">
 					<input type="text" class="form-control" placeholder="Nombre del contacto" name="contact"/><span class="fa fa-user form-control-feedback"></span>
 				</div>
-				<div class="form-group has-feedback">
+				<!--<div class="form-group has-feedback">
 					<input type="text" class="form-control" placeholder="Periodo de registro" name="period"/><span class="fa fa-building form-control-feedback"></span>
-				</div>
+				</div>-->
 				<div class="form-group has-feedback">
 					<input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email" value="{{ old('email') }}"/><span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
