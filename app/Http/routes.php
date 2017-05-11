@@ -238,3 +238,26 @@ Route::get('test2', function() {
         echo "<br>";
     }
 });
+
+Route::resource('serviceAdmins', 'ServiceAdminController');
+
+Route::get('serviceAdmins/{id}/delete', [
+    'as' => 'serviceAdmins.delete',
+    'uses' => 'ServiceAdminController@destroy',
+]);
+
+
+Route::resource('vacancyAdmins', 'VacancyAdminController');
+
+Route::get('vacancyAdmins/{id}/delete', [
+    'as' => 'vacancyAdmins.delete',
+    'uses' => 'VacancyAdminController@destroy',
+]);
+
+
+Route::resource('residentAdmins', 'ResidentAdminController');
+
+Route::get('residentAdmins/{id}/delete', [
+    'as' => 'residentAdmins.delete',
+    'uses' => 'ResidentAdminController@destroy',
+]);

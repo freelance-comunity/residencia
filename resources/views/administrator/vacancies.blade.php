@@ -8,7 +8,7 @@
 
     <div class="row">
         <h1 class="pull-left">Vacantes</h1>
-        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('vacancies.create') !!}">Agregar nuevo</a>
+        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('vacancyAdmins.create') !!}">Agregar nuevo</a>
     </div>
 
     <div class="row">

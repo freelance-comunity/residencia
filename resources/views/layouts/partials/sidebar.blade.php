@@ -34,11 +34,19 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-book'></i> <span>Solicitudes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-building-o'></i> <span>Solicitudes de Empresas</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('allvacancies')}}">Solicitud de Vacantes</a></li>
                     <li><a href="{{ url('allresidents')}}">Solicitud de Residentes</a></li>
                     <li><a href="{{ url('allservices') }}">Solicitud de Servicio Social</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-book'></i> <span>Mis Solicitudes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('vacancyAdmins')}}">Solicitud de Vacantes</a></li>
+                    <li><a href="{{ url('residentAdmins')}}">Solicitud de Residentes</a></li>
+                    <li><a href="{{ url('serviceAdmins') }}">Solicitud de Servicio Social</a></li>
                 </ul>
             </li>
             <li class="treeview">
