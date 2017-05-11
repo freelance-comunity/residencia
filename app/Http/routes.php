@@ -87,35 +87,35 @@ Route::get('companies/{id}/delete', [
 /*============== End Main Routes ==============*/
 Route::group(['middleware' => 'auth'], function(){
 
-   Route::resource('labors', 'LaborController');
+ Route::resource('labors', 'LaborController');
 
-   Route::get('labors/{id}/delete', [
+ Route::get('labors/{id}/delete', [
     'as' => 'labors.delete',
     'uses' => 'LaborController@destroy',
     ]);
 
 
-   Route::resource('vacancies', 'VacancyController');
+ Route::resource('vacancies', 'VacancyController');
 
-   Route::get('vacancies/{id}/delete', [
+ Route::get('vacancies/{id}/delete', [
     'as' => 'vacancies.delete',
     'uses' => 'VacancyController@destroy',
     ]);
 
-   Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
+ Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 
 
-   Route::resource('residents', 'ResidentsController');
+ Route::resource('residents', 'ResidentsController');
 
-   Route::get('residents/{id}/delete', [
+ Route::get('residents/{id}/delete', [
     'as' => 'residents.delete',
     'uses' => 'ResidentsController@destroy',
     ]);
 
 
-   Route::resource('services', 'ServiceController');
+ Route::resource('services', 'ServiceController');
 
-   Route::get('services/{id}/delete', [
+ Route::get('services/{id}/delete', [
     'as' => 'services.delete',
     'uses' => 'ServiceController@destroy',
     ]);
@@ -168,8 +168,8 @@ Route::get('chatgraduates', function() {
 Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
 
 Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
- Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
- Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+   Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+   Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
 
 Route::get('viewvacancies', function() {
@@ -217,5 +217,16 @@ Route::get('viewtestgraduate/{id}', function($id) {
 Route::get('test-pdf/{id}', function($id) {
     $data = App\Models\Graduate::find($id);
     $pdf = PDF::loadView('pdf.invoice', compact('data'));
-    return $pdf->download('invoice.pdf');
+    return $pdf->download('perfil.pdf');
+});
+
+Route::get('test2', function() {
+    $graduates = App\Models\Graduate::all();
+    $chunk = $graduates->take(-4);
+
+    $chunk->all();
+    foreach ($chunk as $key => $value) {
+        echo $value->name;
+        echo "<br>";
+    }
 });
