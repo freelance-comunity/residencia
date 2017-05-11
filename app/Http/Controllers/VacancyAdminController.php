@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Requests\CreateVacancyAdminRequest;
 use App\Models\VacancyAdmin;
+use App\Models\Period;
 use Illuminate\Http\Request;
 use Mitul\Controller\AppBaseController;
 use Response;
@@ -50,7 +51,9 @@ class VacancyAdminController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('vacancyAdmins.create');
+		$periods = Period::pluck('name');
+		return view('vacancyAdmins.create')
+		->with('periods', $periods);
 	}
 
 	/**
