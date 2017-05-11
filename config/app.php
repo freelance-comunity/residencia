@@ -178,6 +178,8 @@ return [
 
         Nahid\Talk\TalkServiceProvider::class,
 
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
 
 
@@ -244,6 +246,8 @@ return [
     'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
     'Talk'      => Nahid\Talk\Facades\Talk::class,
+
+    'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

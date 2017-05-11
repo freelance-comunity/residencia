@@ -213,3 +213,8 @@ Route::get('viewtestgraduate/{id}', function($id) {
     return view('administrator.show-test')
     ->with('graduate', $graduate);
 });
+
+Route::get('test-pdf', function() {
+    $pdf = PDF::loadView('pdf.invoice');
+    return $pdf->download('invoice.pdf');
+});

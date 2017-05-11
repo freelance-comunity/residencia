@@ -80,7 +80,6 @@ Mis datos
 													<strong>CURP:</strong> {{$graduate->curp}} <br>	
 													<strong>Sexo:</strong> {{$graduate->sex}} <br>	
 												</div>
-												<a href="{!! route('graduates.edit', [$graduate->id]) !!}" class="btn btn-default">Editar</a>
 											</div>
 										</li>
 										<!-- timeline item -->
@@ -102,7 +101,6 @@ Mis datos
 													<strong>Salario Percibido:</strong> ${{$graduate->labor->salary}}.00 <br>	
 													<strong>Sector:</strong> {{$graduate->labor->sector}} <br>	
 												</div>
-												<a href="{!! route('labors.edit', [$graduate->labor->id]) !!}" class="btn btn-default">Editar</a>
 												@endif
 											</div>
 										</li>
