@@ -1,3 +1,6 @@
+@section('contentheader_title')
+Bienvenido de Nuevo, {{Auth::user()->name}}
+@endsection
 <div class="col-md-6">
 	<!-- DIRECT CHAT -->
 	<div class="box box-warning direct-chat direct-chat-warning">
@@ -49,4 +52,4 @@
 	</div>
 	<!--/.direct-chat -->
 </div>
-	<!-- /.col -->
+<!-- /.col -->

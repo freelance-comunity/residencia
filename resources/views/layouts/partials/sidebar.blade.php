@@ -67,8 +67,15 @@
                         <li><a href="#">Empresas</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-calendar '></i> <span>Eventos</span></a></li>
+                <li><a href="{{ url('home') }}"><i class='fa fa-calendar '></i> <span>Eventos</span></a></li>
                 <li><a href="{{ url('chatgraduates') }}"><i class='fa fa-comment'></i> <span>Chat</span></a></li>
+                  <li class="treeview">
+                    <a href="#"><i class='fa fa-cog'></i> <span>Utilerías</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('periods') }}">Periodos</a></li>
+                        <li><a href="#">Empresas</a></li>
+                    </ul>
+                </li>
                 @endrole
 
                 @role('company')
@@ -81,8 +88,7 @@
                 <li class="treeview">
                     <a href="#"><i class='fa fa-database'></i> <span>Mis datos</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ url('viewdata') }}/{{ Auth::user()->id }}">Datos personales</a></li>
-                        <li><a href="{!! route('labors.create') !!}">Datos laborales</a></li>
+                        <li><a href="{{ url('viewdata') }}/{{ Auth::user()->id }}">Ver mis Datos</a></li>
                     </ul>
                 </li>
                 <li><a href="{!! route('polls.create') !!}"><i class='fa fa-line-chart'></i> <span>Encuesta de seguimiento</span></a></li>
@@ -97,7 +103,7 @@
                         <li><a href="#">Eventos</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class='fa fa-briefcase'></i> <span>Bolsa de trabajo</span></a></li>
+                <li><a href="{{ url('viewvacancies') }}"><i class='fa fa-briefcase'></i> <span>Bolsa de trabajo</span></a></li>
                 @endrole
             </ul><!-- /.sidebar-menu -->
         </section>

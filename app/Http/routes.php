@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 Route::get('/testing', function(){
     $inboxes = Talk::user(auth()->user()->id)->getInbox();
     foreach ($inboxes as $inbox) {
@@ -182,3 +171,17 @@ Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
    Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
    Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
+
+Route::get('viewvacancies', function() {
+    $vacancies = App\Models\Vacancy::all();
+    return view('graduates.vacancies')
+    ->with('vacancies', $vacancies);
+});
+
+
+Route::resource('periods', 'PeriodController');
+
+Route::get('periods/{id}/delete', [
+    'as' => 'periods.delete',
+    'uses' => 'PeriodController@destroy',
+]);

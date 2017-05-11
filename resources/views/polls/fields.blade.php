@@ -6,8 +6,8 @@
 
 <!--- Question 5 Field --->
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('question_5', 'Fecha de Egreso:') !!}
-    {!! Form::text('question_5', null, ['class' => 'form-control']) !!}
+    {!! Form::label('question_5', 'Periodo de Egreso:') !!}
+    {!! Form::select('question_5', $periods ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!--- Question 6 Field --->

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('contentheader_title')
-Egresado
+Mis datos
 @endsection
 @section('main-content')
 <div class="container">
@@ -83,6 +83,29 @@ Egresado
 												<a href="{!! route('graduates.edit', [$graduate->id]) !!}" class="btn btn-default">Editar</a>
 											</div>
 										</li>
+										<!-- timeline item -->
+										<li>
+											<!-- timeline icon -->
+											<i class="fa fa-suitcase bg-red"></i>
+											<div class="timeline-item">
+												<span class="time"> Creado el: {{$graduate->created_at}}</span>
+												@if(is_null($graduate->labor))
+												<h3 class="timeline-header"><a href="{!! route('labors.create') !!}">Datos Laborales</a></h3>
+												<div class="well text-center">Aún no has registrado tus datos laborales.</div>	
+												@else
+												<h3 class="timeline-header"><a>Datos Laborales</a></h3>					
+												<div class="timeline-body">            		
+													<strong>Nombre de la Empresa: </strong>{{ $graduate->labor->company_name}} <br>
+													<strong>Teléfono de la Empresa:</strong> {{ $graduate->labor->company_phone}} <br>
+													<strong>Puesto Ocupado:</strong> {{ $graduate->labor->position}} <br>	
+													<strong>Área de Trabajo:</strong> {{ $graduate->labor->work_area}} <br>	
+													<strong>Salario Percibido:</strong> ${{$graduate->labor->salary}}.00 <br>	
+													<strong>Sector:</strong> {{$graduate->labor->sector}} <br>	
+												</div>
+												<a href="{!! route('labors.edit', [$graduate->labor->id]) !!}" class="btn btn-default">Editar</a>
+												@endif
+											</div>
+										</li>
 									</ul>
 								</ul>
 							</div>
@@ -97,7 +120,4 @@ Egresado
 			<!-- /.row -->
 		</section>
 		<!-- /.content -->
-	</div>
-	<!-- /.content-wrapper -->
-</div>
-@endsection
+		@endsection

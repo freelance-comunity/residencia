@@ -12,6 +12,7 @@ use Auth;
 use Alert;
 use App\User;
 use App\Models\Graduate;
+use App\Models\Period;
 
 class PollController extends AppBaseController
 {
@@ -56,12 +57,13 @@ class PollController extends AppBaseController
 		$user = Auth::user();
 		$graduate = $user->graduate;
 		$poll = $graduate->poll;
+		$periods = Period::pluck('name', 'name');
 		
 		if (isset($poll)) {
-			return view('polls.polldata')
-			->with('poll', $poll);
+			return view('polls.show')->with('graduate', $graduate);
 		}else{
-			return view('polls.create');
+			return view('polls.create')
+			->with('periods', $periods);
 		}
 	}
 
@@ -80,11 +82,12 @@ class PollController extends AppBaseController
         $input['question_1'] = $user->name;
         $input['question_2'] = $graduate->phone;
         $input['question_3'] = $user->email;
+        $input['graduate_id'] = $graduate->id;
 		$poll = Poll::create($input);
 
-		Flash::message('Poll saved successfully.');
+		Alert::success('Encuesta Guardada Exitosamente.')->persistent('Cerrar');
 
-		return redirect(route('polls.index'));
+		return view('polls.show')->with('graduate', $graduate);
 	}
 
 	/**
