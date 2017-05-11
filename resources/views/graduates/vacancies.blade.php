@@ -35,6 +35,37 @@ Ver Vacantes de Empleo
 			</div>
 			@endforeach
 			@endif
+			@php
+				$adminvacancies = App\Models\VacancyAdmin::all();
+			@endphp
+			@if($adminvacancies->isEmpty())
+			@else
+			@foreach ($adminvacancies as $vacancy)
+			<div class="form-group col-sm-6 col-lg-6">
+				<!-- Widget: user widget style 1 -->
+				<div class="box box-widget widget-user-2">
+					<!-- Add the bg color to the header using any of the bg-* classes -->
+					<div class="widget-user-header bg-{{ ratingColor($vacancy->id) }}">
+						<div class="widget-user-image">
+							<img class="img-circle" src="{{ asset('images/work_icon.png') }}" alt="User Avatar">
+						</div>
+						<!-- /.widget-user-image -->
+						<h3 class="widget-user-username">{{$vacancy->position}}</h3>
+						<h5 class="widget-user-desc">{{$vacancy->task}}</h5>
+					</div>
+					<div class="box-footer no-padding">
+						<ul class="nav nav-stacked">
+							<li><a href="#">Abilidades requeridas: <span class="badge bg-green">{{$vacancy->abilities}}</span></a></li>
+							<li><a href="#">Área de trabajo: <span class="badge bg-aqua">{{$vacancy->area}}</span></a></li>
+							<li><a href="#">Salario: <span class="badge bg-yellow">${{$vacancy->salary}}</span></a></li>
+							<li><a href="#">Contacto: <span class="badge bg-red">{{$vacancy->contact}}</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /.widget-user -->
+			</div>
+			@endforeach
+			@endif
 		</div>
 	</div>
 </div>
