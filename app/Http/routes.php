@@ -214,7 +214,8 @@ Route::get('viewtestgraduate/{id}', function($id) {
     ->with('graduate', $graduate);
 });
 
-Route::get('test-pdf', function() {
-    $pdf = PDF::loadView('pdf.invoice');
+Route::get('test-pdf/{id}', function($id) {
+    $data = App\Models\Graduate::find($id);
+    $pdf = PDF::loadView('pdf.invoice', compact('data'));
     return $pdf->download('invoice.pdf');
 });

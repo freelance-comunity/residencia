@@ -106,7 +106,7 @@ Mis datos
 										</li>
 									</ul>
 								</ul>
-								<a href="" class="uppercase btn bg-navy"><span class="fa fa-file-pdf-o"></span> descargar</a>
+								<a href="{!! url('test-pdf', [$graduate->id]) !!}" class="uppercase btn bg-navy"><span class="fa fa-file-pdf-o"></span> descargar</a>
 							</div>
 							<!-- /.tab-pane -->
 						</div>
