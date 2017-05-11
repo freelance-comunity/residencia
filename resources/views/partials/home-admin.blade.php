@@ -186,7 +186,7 @@ $vacancies = App\Models\Vacancy::all()->count();
 					@foreach ($chunk as $graduate)
 					<li>
 						<img src="{{$graduate->user->avatar}}" alt="User Image">
-						<a class="users-list-name" href="#">{{$graduate->name}} {{$graduate->last_name}}</a>
+						<a class="users-list-name" href="{!! url('viewdatagraduate', [$graduate->id]) !!}">{{$graduate->name}} {{$graduate->last_name}}</a>
 						<span class="users-list-date">{{$graduate->created_at}}</span>
 					</li>
 					@endforeach
