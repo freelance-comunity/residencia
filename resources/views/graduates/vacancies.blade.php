@@ -27,7 +27,7 @@ Ver Vacantes de Empleo
 							<li><a href="#">Abilidades requeridas: <span class="badge bg-green">{{$element->abilities}}</span></a></li>
 							<li><a href="#">Área de trabajo: <span class="badge bg-aqua">{{$element->area}}</span></a></li>
 							<li><a href="#">Salario: <span class="badge bg-yellow">${{$element->salary}}</span></a></li>
-							<li><a href="#">Contacto: <span class="badge bg-red">{{$element->contact}}</span></a></li>
+							<li><a href="#">Contacto: <span class="badge bg-red">{{$element->email}}</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -58,7 +58,7 @@ Ver Vacantes de Empleo
 							<li><a href="#">Abilidades requeridas: <span class="badge bg-green">{{$vacancy->abilities}}</span></a></li>
 							<li><a href="#">Área de trabajo: <span class="badge bg-aqua">{{$vacancy->area}}</span></a></li>
 							<li><a href="#">Salario: <span class="badge bg-yellow">${{$vacancy->salary}}</span></a></li>
-							<li><a href="#">Contacto: <span class="badge bg-red">{{$vacancy->contact}}</span></a></li>
+							<li><a href="#">Contacto: <span class="badge bg-red">{{$vacancy->email}}</span></a></li>
 						</ul>
 					</div>
 				</div>
