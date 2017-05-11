@@ -197,6 +197,7 @@ INICIO
             </div>
             @php
             $vacancy = App\Models\Vacancy::all();
+            $vacancyAdmins = App\Models\VacancyAdmin::all();
             @endphp
             <div class="row ">
                 @foreach ($vacancy as $element)
@@ -236,12 +237,6 @@ INICIO
         </div>
     </div>
     @endforeach
-</div>
-
-@php
-$vacancyAdmins = App\Models\VacancyAdmin::all();
-@endphp
-<div class="row ">
     @foreach ($vacancyAdmins as $vacancyAdmin)
     <div class="col-md-6 animate-box">
         <div class="course">
@@ -280,6 +275,7 @@ $vacancyAdmins = App\Models\VacancyAdmin::all();
 </div>
 @endforeach
 </div>
+
 
 </div>
 </div>
