@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('contentheader_title')
-Mis datos
+Datos de Encuesta
 @endsection
 @section('main-content')
 <div class="container">
@@ -13,7 +13,7 @@ Mis datos
 			<div class="col-md-3">
 				@include('sweet::alert')
 				<!-- Profile Image -->
-				<div class="box box-primary">
+				<div class="box box-danger">
 					<div class="box-body box-profile">
 						<img class="profile-user-img img-responsive img-circle" src="{{$graduate->user->avatar}}" alt="User profile picture">
 						<h3 class="profile-username text-center">{{ $graduate->name }} {{$graduate->last_name}}</h3>
@@ -52,7 +52,7 @@ Mis datos
 				<div class="col-md-9">
 					<div class="nav-tabs-custom">
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#timeline" data-toggle="tab">Datos</a></li>
+							<li class="active"><a href="#timeline" data-toggle="tab">Datos de Encuesta</a></li>
 						</ul>
 						<div class="tab-content">
 							<!-- /.tab-pane -->
@@ -66,48 +66,35 @@ Mis datos
 										<!-- timeline item -->
 										<li>
 											<!-- timeline icon -->
-											<i class="fa fa-user bg-blue"></i>
+											<i class="fa fa-file bg-red"></i>
 											<div class="timeline-item">
 												<span class="time"> Creado el: {{$graduate->created_at}}</span>
 
-												<h3 class="timeline-header"><a>Datos Generales</a></h3>
-
-												<div class="timeline-body">            		
-													<strong>Fecha de nacimiento: </strong>{{ $graduate->birthday}} <br>
-													<strong>Teléfono celular:</strong> {{ $graduate->phone}} <br>
-													<strong>Correo electrónico:</strong> {{ $graduate->user->email}} <br>	
-													<strong>Dirección:</strong> {{ $graduate->address}} <br>	
-													<strong>CURP:</strong> {{$graduate->curp}} <br>	
-													<strong>Sexo:</strong> {{$graduate->sex}} <br>	
-												</div>
-												<a href="{!! route('graduates.edit', [$graduate->id]) !!}" class="btn btn-default">Editar</a>
-											</div>
-										</li>
-										<!-- timeline item -->
-										<li>
-											<!-- timeline icon -->
-											<i class="fa fa-suitcase bg-red"></i>
-											<div class="timeline-item">
-												<span class="time"> Creado el: {{$graduate->created_at}}</span>
-												@if(is_null($graduate->labor))
-												<h3 class="timeline-header"><a href="{!! route('labors.create') !!}">Datos Laborales</a></h3>
-												<div class="well text-center">Aún no se han registrado datos laborales.</div>	
+												<h3 class="timeline-header"><a>Respuestas</a></h3>
+												@if(is_null($graduate->poll))
+												<div class="well text-center">Aún no se han registrado datos de la encuesta.</div>	
 												@else
-												<h3 class="timeline-header"><a>Datos Laborales</a></h3>					
 												<div class="timeline-body">            		
-													<strong>Nombre de la Empresa: </strong>{{ $graduate->labor->company_name}} <br>
-													<strong>Teléfono de la Empresa:</strong> {{ $graduate->labor->company_phone}} <br>
-													<strong>Puesto Ocupado:</strong> {{ $graduate->labor->position}} <br>	
-													<strong>Área de Trabajo:</strong> {{ $graduate->labor->work_area}} <br>	
-													<strong>Salario Percibido:</strong> ${{$graduate->labor->salary}}.00 <br>	
-													<strong>Sector:</strong> {{$graduate->labor->sector}} <br>	
+													<strong>Página de Facebook o Twitter: </strong>{{ $graduate->poll->question_4}} <br>
+													<strong>Periodo de Egreso: </strong>{{ $graduate->poll->question_5}} <br>
+													<strong>Titulado: </strong>{{ $graduate->poll->question_6}} <br>
+													<strong>¿Cuánto tiempo tardo en encontrar su primer empleo después de egresar?: </strong>{{ $graduate->poll->question_7}} <br>	
+													<strong>¿Por qué medio obtuvo su trabajo actual?: </strong>{{ $graduate->poll->question_8}} <br>	
+													<strong>Nombre de la empresa, institución u prganización en que labora actualmente: </strong>{{ $graduate->poll->question_9}} <br>
+													<strong>Tipo de institución en la que labora: </strong>{{ $graduate->poll->question_10}} <br>
+													<strong>Menciona el sector económico al que pertenece la empresa u organización en la que labora: </strong>{{ $graduate->poll->question_11}} <br>
+													<strong>¿Qué tan relacionado con sus estudios de licenciatura está el trabajo que actualmente desempeña?: </strong>{{ $graduate->poll->question_12}} <br>
+													<strong>La formación obtenida en el instituto le permitió responder a las demandas de: </strong>{{ $graduate->poll->question_13}} <br>
+													<strong>En qué área te desempeñas actualmente: </strong>{{ $graduate->poll->question_14}} <br>
+													<strong>Comentarios: </strong>{{ $graduate->poll->comment}} <br>
 												</div>
-												<a href="{!! route('labors.edit', [$graduate->labor->id]) !!}" class="btn btn-default">Editar</a>
 												@endif
+												<!--<a href="{!! route('graduates.edit', [$graduate->id]) !!}" class="btn btn-default">Editar</a>-->
 											</div>
 										</li>
 									</ul>
 								</ul>
+								<a href="" class="uppercase btn bg-navy"><span class="fa fa-file-pdf-o"></span> descargar</a>
 							</div>
 							<!-- /.tab-pane -->
 						</div>

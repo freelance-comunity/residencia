@@ -80,7 +80,6 @@ Mis datos
 													<strong>CURP:</strong> {{$graduate->curp}} <br>	
 													<strong>Sexo:</strong> {{$graduate->sex}} <br>	
 												</div>
-												<a href="{!! route('graduates.edit', [$graduate->id]) !!}" class="btn btn-default">Editar</a>
 											</div>
 										</li>
 										<!-- timeline item -->
@@ -90,7 +89,7 @@ Mis datos
 											<div class="timeline-item">
 												<span class="time"> Creado el: {{$graduate->created_at}}</span>
 												@if(is_null($graduate->labor))
-												<h3 class="timeline-header"><a href="{!! route('labors.create') !!}">Datos Laborales</a></h3>
+												<h3 class="timeline-header"><a href="#">Datos Laborales</a></h3>
 												<div class="well text-center">Aún no se han registrado datos laborales.</div>	
 												@else
 												<h3 class="timeline-header"><a>Datos Laborales</a></h3>					
@@ -102,12 +101,12 @@ Mis datos
 													<strong>Salario Percibido:</strong> ${{$graduate->labor->salary}}.00 <br>	
 													<strong>Sector:</strong> {{$graduate->labor->sector}} <br>	
 												</div>
-												<a href="{!! route('labors.edit', [$graduate->labor->id]) !!}" class="btn btn-default">Editar</a>
 												@endif
 											</div>
 										</li>
 									</ul>
 								</ul>
+								<a href="{!! url('test-pdf', [$graduate->id]) !!}" class="uppercase btn bg-navy"><span class="fa fa-file-pdf-o"></span> descargar</a>
 							</div>
 							<!-- /.tab-pane -->
 						</div>

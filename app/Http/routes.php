@@ -70,17 +70,17 @@ Route::get('/academic', function(){
 
 Route::resource('graduates', 'GraduateController');
 
- Route::get('/viewdata/{id}', 'GraduateController@data');
+Route::get('/viewdata/{id}', 'GraduateController@data');
 
- Route::get('graduates/{id}/delete', [
+Route::get('graduates/{id}/delete', [
     'as' => 'graduates.delete',
     'uses' => 'GraduateController@destroy',
 
     ]);
 
- Route::resource('companies', 'CompanyController');
+Route::resource('companies', 'CompanyController');
 
- Route::get('companies/{id}/delete', [
+Route::get('companies/{id}/delete', [
     'as' => 'companies.delete',
     'uses' => 'CompanyController@destroy',
     ]);
@@ -137,7 +137,7 @@ Route::resource('polls', 'PollController');
 Route::get('polls/{id}/delete', [
     'as' => 'polls.delete',
     'uses' => 'PollController@destroy',
-]);
+    ]);
 
 /*============== Administrator ==============*/
 /*
@@ -192,4 +192,49 @@ Route::resource('periods', 'PeriodController');
 Route::get('periods/{id}/delete', [
     'as' => 'periods.delete',
     'uses' => 'PeriodController@destroy',
-]);
+    ]);
+
+Route::get('viewdatagraduate/{id}', function($id) {
+    $graduate = App\Models\Graduate::find($id);
+    $labor = $graduate->labor;
+
+    if(empty($graduate))
+    {
+        Flash::error('Graduate not found');
+        return redirect(route('graduates.index'));
+    }
+
+    return view('administrator.show-profile')
+    ->with('graduate', $graduate)
+    ->with('labor', $labor);
+});
+
+Route::get('viewtestgraduate/{id}', function($id) {
+    $graduate = App\Models\Graduate::find($id);
+
+    if(empty($graduate))
+    {
+        Flash::error('Graduate not found');
+        return redirect(route('graduates.index'));
+    }
+
+    return view('administrator.show-test')
+    ->with('graduate', $graduate);
+});
+
+Route::get('test-pdf/{id}', function($id) {
+    $data = App\Models\Graduate::find($id);
+    $pdf = PDF::loadView('pdf.invoice', compact('data'));
+    return $pdf->download('perfil.pdf');
+});
+
+Route::get('test2', function() {
+    $graduates = App\Models\Graduate::all();
+    $chunk = $graduates->take(-4);
+
+    $chunk->all();
+    foreach ($chunk as $key => $value) {
+        echo $value->name;
+        echo "<br>";
+    }
+});

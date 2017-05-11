@@ -1,3 +1,81 @@
+@section('contentheader_title')
+Bienvenido de Nuevo, {{Auth::user()->name}}
+@endsection
+@php
+$graduates = App\Models\Graduate::all()->count();
+$companies = App\Models\Company::all()->count();
+$vacancies = App\Models\Vacancy::all()->count();
+@endphp
+<div class="row">
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-aqua">
+			<div class="inner">
+				<h3>{{$graduates}}</h3>
+
+				<p>Egresados Registrados</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-graduation-cap"></i>
+			</div>
+			<a href="{{ url('allgraduates') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-green">
+			<div class="inner">
+				<h3>{{$companies}}<sup style="font-size: 20px"></sup></h3>
+
+				<p>Empresas Registradas</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-building"></i>
+			</div>
+			<a href="{{ url('allcompanies') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-yellow">
+			<div class="inner">
+				<h3>44</h3>
+
+				<p>Docentes Registrados</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-person-add"></i>
+			</div>
+			<a href="#" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-red">
+			<div class="inner">
+				<h3>{{$vacancies}}</h3>
+
+				<p>Vacantes Disponibles</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-suitcase"></i>
+			</div>
+			<a href="{{ url('allvacancies') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+</div>
 <div class="col-md-6">
 	<!-- DIRECT CHAT -->
 	<div class="box box-warning direct-chat direct-chat-warning">
@@ -84,7 +162,12 @@
 		<!--/.direct-chat -->
 	</div>
 	<!-- /.col -->
+	@php
+	$collection = App\Models\Graduate::all();
+	$chunk = $collection->take(-8);
 
+	$chunk->all();
+	@endphp
 	<div class="col-md-6">
 		<!-- USERS LIST -->
 		<div class="box box-danger">
@@ -92,18 +175,15 @@
 				<h3 class="box-title">Ultimos Egresados Registrados</h3>
 
 				<div class="box-tools pull-right">
-					<span class="label label-danger">4 Nuevos miembros</span>
+					<span class="label label-danger">{{$chunk->count()}} Nuevos miembros</span>
 					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 					</button>
 				</div>
 			</div>
 			<!-- /.box-header -->
-			@php
-			$graduates = App\Models\Graduate::all();
-			@endphp
 			<div class="box-body no-padding">
 				<ul class="users-list clearfix">
-					@foreach ($graduates as $graduate)
+					@foreach ($chunk as $graduate)
 					<li>
 						<img src="{{$graduate->user->avatar}}" alt="User Image">
 						<a class="users-list-name" href="#">{{$graduate->name}} {{$graduate->last_name}}</a>
