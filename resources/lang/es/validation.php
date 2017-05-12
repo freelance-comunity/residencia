@@ -103,6 +103,46 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'position' => [
+            'required' => 'El campo posición requerida es obligatorio.',
+        ],
+        'task' => [
+            'required' => 'El campo tareas a realizar es obligatorio.',
+        ],
+        'abilities' => [
+            'required' => 'El campo habilidades es obligatorio.',
+        ],
+        'area' => [
+            'required' => 'El campo área de trabajo es obligatorio.',
+        ],
+        'salary' => [
+            'required' => 'El campo salario es obligatorio.',
+        ],
+        'contact' => [
+            'required' => 'El campo correo del contacto es obligatorio.',
+        ],
+        'period' => [
+            'required' => 'El campo periodo es obligatorio.',
+        ],
+        'name_project' => [
+            'required' => 'El campo nombre del proyecto es obligatorio.',
+        ],
+        'objective' => [
+            'required' => 'El campo objectivo es obligatorio.',
+        ],
+        'objetive' => [
+            'required' => 'El campo objectivo es obligatorio.',
+        ],
+        'applicant' => [
+            'required' => 'El campo solicitante es obligatorio.',
+        ],
+        'address' => [
+            'required' => 'El campo dirección es obligatorio.',
+        ],
+        'phone' => [
+            'required' => 'El campo teléfono es obligatorio.',
+            'digits'   => 'El campo teléfono debe ser un número de :digits dígitos.'
+        ],
     ],
 
     /*

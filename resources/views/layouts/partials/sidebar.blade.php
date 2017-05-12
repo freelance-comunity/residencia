@@ -86,11 +86,13 @@
                 </li>
                 @endrole
 
-                @role('company')                
-                <li class="active"><a href="{{ url('companies') }}"><i class='fa fa-building-o '></i> <span>Mi Perfil</span></a></li>
+                @role('company') 
+                    
+                <li class="active"><a href="{{ url('view-company')}}/{{ Auth::user()->id}}"><i class='fa fa-building-o '></i> <span>Mi Perfil</span></a></li>
                 <li class="active"><a href="{{ url('vacancies') }}"><i class='fa fa-code '></i> <span>Solicitud de Vacantes</span></a></li>
                 <li class="active"><a href="{{ url('residents') }}"><i class='fa fa-laptop '></i> <span>Solicitud de residentes</span></a></li>
                 <li class="active"><a href="{{ url('services') }}"><i class='fa fa-book'></i> <span>Solicitud de Servicio Social</span></a></li> 
+  
                 @endrole 
 
                 @role('graduate')

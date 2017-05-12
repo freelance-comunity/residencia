@@ -13,11 +13,13 @@ Mis datos
             <div class="col-md-3">
                 @include('sweet::alert')
                 <!-- Profile Image -->
-                <div class="box box-primary">               
-                                       
+                <div class="box box-primary">
+               
+                    <div class="box-body box-profile">
+                      
                         <h3 class="profile-username text-center">{{ $company->name }} </h3>
                         <ul class="list-group list-group-unbordered">
-                       
+                        </div>
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->

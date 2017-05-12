@@ -19,7 +19,7 @@
 <!--- Period Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('period', 'Periodo:') !!}
-    {!! Form::text('period', null, ['class' => 'form-control']) !!}
+    {!! Form::select('period', $periods, null, ['class' => 'form-control']) !!}
 </div>
 
 

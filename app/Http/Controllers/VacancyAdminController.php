@@ -51,7 +51,7 @@ class VacancyAdminController extends AppBaseController
 	 */
 	public function create()
 	{
-		$periods = Period::pluck('name');
+		$periods = Period::pluck('name','name');
 		return view('vacancyAdmins.create')
 		->with('periods', $periods);
 	}
@@ -102,6 +102,7 @@ class VacancyAdminController extends AppBaseController
 	 */
 	public function edit($id)
 	{
+		$periods = Period::pluck('name','name');
 		$vacancyAdmin = VacancyAdmin::find($id);
 
 		if(empty($vacancyAdmin))
@@ -110,7 +111,9 @@ class VacancyAdminController extends AppBaseController
 			return redirect(route('vacancyAdmins.index'));
 		}
 
-		return view('vacancyAdmins.edit')->with('vacancyAdmin', $vacancyAdmin);
+		return view('vacancyAdmins.edit')
+		->with('periods', $periods)
+		->with('vacancyAdmin', $vacancyAdmin);
 	}
 
 	/**

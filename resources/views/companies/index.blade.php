@@ -18,13 +18,9 @@
             <table class="table" id="myTable">
                 <thead>
                     <th>Nombre</th>
-                    <th>Sector</th>
-                    <th>RFC</th>
-                    <th>Dirección</th>
-                    <th>Teléfono</th>
                     <th>Director</th>
                     <th>Contacto</th>
-                    <th>Periodo</th>
+                   
                     <th width="50px">Acción</th>
                 </thead>
                 <tbody>
@@ -32,16 +28,11 @@
                     @foreach($companies as $company)
                     <tr>
                         <td>{!! $company->name !!}</td>
-                        <td>{!! $company->sector !!}</td>
-                        <td>{!! $company->rfc !!}</td>
-                        <td>{!! $company->address !!}</td>
-                        <td>{!! $company->phone !!}</td>
                         <td>{!! $company->director !!}</td>
                         <td>{!! $company->contact !!}</td>
-                        <td>{!! $company->period !!}</td>
+                      
                         <td>
-                            <a href="{!! route('companies.edit', [$company->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a href="{!! route('companies.delete', [$company->id]) !!}" onclick="return confirm('Are you sure wants to delete this Company?')"><i class="glyphicon glyphicon-remove"></i></a>
+                            <a href="{!! route('companies.delete', [$company->id]) !!}" class="btn bg-red" onclick="return confirm('¿Estas seguro de eliminar a esta Empresa?')"><i class="fa fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
                     @endforeach

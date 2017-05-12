@@ -200,6 +200,9 @@ INICIO
             $vacancyAdmins = App\Models\VacancyAdmin::all();
             @endphp
             <div class="row ">
+                @if($vacancy->isEmpty())
+                <div class="well text-center">No se encontraron solicitudes de vacantes.</div>
+                @else
                 @foreach ($vacancy as $element)
                 <div class="col-md-6 animate-box">
                     <div class="course">
@@ -217,63 +220,79 @@ INICIO
                             <div class="modal fade" id="exampleModalLong{{$element->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                  <div class="modal-header">
+                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLongTitle">{{ $element->position}}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                   </button>
                               </div>
                               <div class="modal-body">
-                                {{$element->abilities}}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                 <strong>Tareas a Realizar: </strong>{{$element->task}} <br>
+                                 <strong>Habilidades:</strong> {{$element->abilities}} <br>
+                                 <strong>Área de trabajo: </strong>{{ $element->area}} <br>
+                                 <strong>Salario:</strong> ${{$element->salary}} <br>
+                                 <strong>Nombre del contacto:</strong> {{$element->contact}} <br>
+                                 <strong>Teléfono del contacto:</strong> {{$element->phone}} <br>
+                                 <strong>Email del contacto:</strong> {{$element->email}} <br>
+                                 <strong>Periodo de la Vacante: </strong> {{$element->period}}
+                             </div>
+                             <div class="modal-footer">
+                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
 
+       </div>
+   </div>
+   @endforeach
+   @endif
+   @foreach ($vacancyAdmins as $vacancyAdmin)
+   <div class="col-md-6 animate-box">
+    <div class="course">
+
+        <a href="#" class="course-img" style="background-image: url(uploads/avatars/default.jpg);">
+        </a>
+        <div class="desc">
+
+            <!--<h1> {{ $element->company->name}}</h1>-->
+
+            <h3><a href="#">{{ $vacancyAdmin->position}}</a></h3>
+            <p>{{$vacancyAdmin->task}}</p>
+            <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModalLong{{$vacancyAdmin->id}}">Ver más</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong{{$vacancyAdmin->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{ $vacancyAdmin->position}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <strong>Tareas a Realizar: </strong>{{$vacancyAdmin->task}} <br>
+                  <strong>Habilidades:</strong> {{$vacancyAdmin->abilities}} <br>
+                  <strong>Área de trabajo: </strong>{{ $vacancyAdmin->area}} <br>
+                  <strong>Salario:</strong> ${{$vacancyAdmin->salary}} <br>
+                  <strong>Nombre del contacto:</strong> {{$vacancyAdmin->contact}} <br>
+                  <strong>Teléfono del contacto:</strong> {{$vacancyAdmin->phone}} <br>
+                  <strong>Email del contacto:</strong> {{$vacancyAdmin->email}} <br>
+                  <strong>Periodo de la Vacante: </strong> {{$vacancyAdmin->period}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
         </div>
     </div>
-    @endforeach
-    @foreach ($vacancyAdmins as $vacancyAdmin)
-    <div class="col-md-6 animate-box">
-        <div class="course">
-
-            <a href="#" class="course-img" style="background-image: url(uploads/avatars/default.jpg);">
-            </a>
-            <div class="desc">
-
-                <!--<h1> {{ $element->company->name}}</h1>-->
-
-                <h3><a href="#">{{ $vacancyAdmin->position}}</a></h3>
-                <p>{{$vacancyAdmin->task}}</p>
-                <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModalLong{{$vacancyAdmin->id}}">Ver más</button>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalLong{{$vacancyAdmin->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">{{ $vacancyAdmin->position}}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">
-                    {{$vacancyAdmin->abilities}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 
 </div>
 </div>
 @endforeach
+
 </div>
 
 

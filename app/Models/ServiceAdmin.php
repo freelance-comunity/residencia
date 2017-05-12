@@ -19,9 +19,9 @@ class ServiceAdmin extends Model
 	];
 
 	public static $rules = [
-	    "task" => "required",
-		"area" => "required",
-		"contact" => "required",
+	    "task" => "required|max:1000",
+		"area" => "required|max:1000",
+		"contact" => "required|max:1000",
 		"period" => "required"
 	];
 

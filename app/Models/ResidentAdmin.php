@@ -27,15 +27,15 @@ class ResidentAdmin extends Model
 	];
 
 	public static $rules = [
-	    "name_project" => "required",
-	    "area" => "required",
-		"objetive" => "required",
+	    "name_project" => "required|max:1000",
+	    "area" => "required|max:1000",
+		"objetive" => "required|max:1000",
 		"students" => "required",
-		"applicant" => "required",
-		"address" => "required",
-		"contact" => "required",
-		"phone" => "required",
-		"cel" => "required",
+		"applicant" => "required|max:1000",
+		"address" => "required|max:255",
+		"contact" => "required|max:1000",
+		"phone" => "required|regex:/^[1-9]\d*$/|min:6|max:10",
+		"cel" => "required|regex:/^[1-9]\d*$/|min:6|max:10",
 		"email" => "required",
 		"status" => "required",
 		"period" => "required"

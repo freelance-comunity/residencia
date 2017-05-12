@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Requests\CreateServiceRequest;
 use App\Models\Service;
+use App\Models\Period;
 use Illuminate\Http\Request;
 use Mitul\Controller\AppBaseController;
 use Response;
@@ -51,7 +52,9 @@ class ServiceController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('services.create');
+		$periods = Period::pluck('name','name');
+		return view('services.create')
+		->with('periods', $periods);
 	}
 
 	/**
@@ -103,6 +106,7 @@ class ServiceController extends AppBaseController
 	 */
 	public function edit($id)
 	{
+		$periods = Period::pluck('name','name');
 		$service = Service::find($id);
 
 		if(empty($service))
@@ -111,7 +115,7 @@ class ServiceController extends AppBaseController
 			return redirect(route('services.index'));
 		}
 
-		return view('services.edit')->with('service', $service);
+		return view('services.edit')->with('periods', $periods)->with('service', $service);
 	}
 
 	/**

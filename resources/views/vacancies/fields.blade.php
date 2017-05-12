@@ -25,7 +25,7 @@
 <!--- Salary Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('salary', 'Salario:') !!}
-    {!! Form::text('salary', null, ['class' => 'form-control']) !!}
+    {!! Form::text('salary', null, ['class' => 'form-control', 'maxlength' => 7]) !!}
 </div>
 
 <!--- Contact Field --->
@@ -37,7 +37,7 @@
 <!--- phone Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('phone', 'Teléfono del Contacto:') !!}
-    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+    {!! Form::text('phone', null, ['class' => 'form-control', 'maxlength' => 10]) !!}
 </div>
 
 <!--- email Field --->
@@ -50,7 +50,7 @@
 <!--- Period Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('period', 'Periodo:') !!}
-    {!! Form::text('period', null, ['class' => 'form-control']) !!}
+    {!! Form::select('period', $periods, null, ['class' => 'form-control']) !!}
 </div>
 
 

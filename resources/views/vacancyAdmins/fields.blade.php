@@ -25,7 +25,7 @@
 <!--- Salary Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('salary', 'Salario:') !!}
-    {!! Form::text('salary', null, ['class' => 'form-control']) !!}
+    {!! Form::text('salary', null, ['class' => 'form-control', 'maxlength' => 6]) !!}
 </div>
 
 <!--- Contact Field --->
@@ -37,7 +37,7 @@
 <!--- phone Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('phone', 'Teléfono del Contacto:') !!}
-    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+    {!! Form::text('phone', null, ['class' => 'form-control','maxlength' => 10]) !!}
 </div>
 
 <!--- email Field --->

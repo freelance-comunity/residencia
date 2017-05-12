@@ -20,18 +20,19 @@ class VacancyAdmin extends Model
 		"contact",
 		"phone",
 		"email",
-		"period"
+		"period"	
 	];
 
 	public static $rules = [
-	    "position" => "required",
-		"task" => "required",
-		"abilities" => "required",
-		"area" => "required",
-		"salary" => "required",
-		"contact" => "required",
-		"phone" => "required",
-		"email" => "required"
+	    "position" => "required|max:1000",
+		"task" => "required|max:1000",
+		"abilities" => "required|max:1000",
+		"area" => "required|max:1000",
+		"salary" => "required|regex:/^[1-9]\d*$/",
+		"contact" => "required|max:1000",
+		"phone" => "required|regex:/^[1-9]\d*$/|min:6|max:10",
+		"email" => "required",
+		"period" => "required"
 	];
 
 }

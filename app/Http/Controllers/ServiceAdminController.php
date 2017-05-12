@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Requests\CreateServiceAdminRequest;
 use App\Models\ServiceAdmin;
+use App\Models\Period;
 use Illuminate\Http\Request;
 use Mitul\Controller\AppBaseController;
 use Response;
@@ -50,7 +51,9 @@ class ServiceAdminController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('serviceAdmins.create');
+		$periods = Period::pluck('name','name');
+		return view('serviceAdmins.create')
+		->with('periods', $periods);
 	}
 
 	/**
@@ -100,6 +103,7 @@ class ServiceAdminController extends AppBaseController
 	 */
 	public function edit($id)
 	{
+		$periods = Period::pluck('name','name');
 		$serviceAdmin = ServiceAdmin::find($id);
 
 		if(empty($serviceAdmin))
@@ -108,7 +112,7 @@ class ServiceAdminController extends AppBaseController
 			return redirect(route('serviceAdmins.index'));
 		}
 
-		return view('serviceAdmins.edit')->with('serviceAdmin', $serviceAdmin);
+		return view('serviceAdmins.edit')->with('periods', $periods)->with('serviceAdmin', $serviceAdmin);
 	}
 
 	/**

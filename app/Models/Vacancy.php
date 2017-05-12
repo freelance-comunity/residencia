@@ -26,13 +26,13 @@ class Vacancy extends Model
 	];
 
 	public static $rules = [
-	    "position" => "required",
-		"task" => "required",
-		"abilities" => "required",
-		"area" => "required",
-		"salary" => "required",
-		"contact" => "required",
-		"phone" => "required",
+	    "position" => "required|max:255",
+		"task" => "required|max:1000",
+		"abilities" => "required|max:1000",
+		"area" => "required|max:255",
+		"salary" => "required|regex:/^[1-9]\d*$/",
+		"contact" => "required|max:255",
+		"phone" => "required|regex:/^[1-9]\d*$/|min:6|max:10",
 		"email" => "required",
 		"period" => "required"
 	];

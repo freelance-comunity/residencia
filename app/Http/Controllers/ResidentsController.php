@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Requests\CreateResidentsRequest;
 use App\Models\Residents;
+use App\Models\Period;
 use Illuminate\Http\Request;
 use Mitul\Controller\AppBaseController;
 use Response;
@@ -51,7 +52,9 @@ class ResidentsController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('residents.create');
+		$periods = Period::pluck('name','name');
+		return view('residents.create')
+		->with('periods', $periods);
 	}
 
 	/**
@@ -84,6 +87,7 @@ class ResidentsController extends AppBaseController
 	 */
 	public function show($id)
 	{
+		$periods = Period::pluck('name','name');
 		$residents = Residents::find($id);
 
 		if(empty($residents))
@@ -111,7 +115,7 @@ class ResidentsController extends AppBaseController
 			return redirect(route('residents.index'));
 		}
 
-		return view('residents.edit')->with('residents', $residents);
+		return view('residents.edit')->with('periods', $periods)->with('residents', $residents);
 	}
 
 	/**

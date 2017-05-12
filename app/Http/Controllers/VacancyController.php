@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateVacancyRequest;
 use App\Models\Vacancy;
 use App\Models\Company;
+use App\Models\Period;
 use App\User;
 use Illuminate\Http\Request;
 use Mitul\Controller\AppBaseController;
@@ -53,7 +54,9 @@ class VacancyController extends AppBaseController
 	 */
 	public function create()
 	{
-		return view('vacancies.create');
+		$periods = Period::pluck('name','name');
+		return view('vacancies.create')
+		->with('periods', $periods);
 	}
 
 	/**
@@ -106,6 +109,7 @@ class VacancyController extends AppBaseController
 	 */
 	public function edit($id)
 	{
+		$periods = Period::pluck('name','name');
 		$vacancy = Vacancy::find($id);
 
 		if(empty($vacancy))
@@ -114,7 +118,9 @@ class VacancyController extends AppBaseController
 			return redirect(route('vacancies.index'));
 		}
 
-		return view('vacancies.edit')->with('vacancy', $vacancy);
+		return view('vacancies.edit')
+		->with('periods', $periods)
+		->with('vacancy', $vacancy);
 	}
 
 	/**
