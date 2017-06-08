@@ -29,6 +29,13 @@ Route::get('/roles', function() {
     $admin->display_name = 'Usuario Empresa'; // optional
     $admin->description  = 'Empresa la cual podra publicar sus vacantes en SEDSC'; // optional
     $admin->save();
+    
+
+    $admin = new App\Role();
+    $admin->name         = 'teacher';
+    $admin->display_name = 'Usuario Docente'; // optional
+    $admin->description  = 'Docente el cual podra publicar sus proyectos en SEDSC'; // optional
+    $admin->save();
     echo "Listo";
 });
 /*============== Main Routes ==============*/
@@ -277,3 +284,19 @@ Route::get('residentAdmins/{id}/delete', [
     'as' => 'residentAdmins.delete',
     'uses' => 'ResidentAdminController@destroy',
     ]);
+
+
+Route::resource('depis', 'DepiController');
+
+Route::get('depis/{id}/delete', [
+    'as' => 'depis.delete',
+    'uses' => 'DepiController@destroy',
+]);
+
+
+Route::resource('teachers', 'TeacherController');
+
+Route::get('teachers/{id}/delete', [
+    'as' => 'teachers.delete',
+    'uses' => 'TeacherController@destroy',
+]);

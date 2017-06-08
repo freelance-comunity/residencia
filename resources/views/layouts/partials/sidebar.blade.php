@@ -116,6 +116,9 @@
                 </li>
                 <li><a href="{{ url('viewvacancies') }}"><i class='fa fa-briefcase'></i> <span>Bolsa de trabajo</span></a></li>
                 @endrole
+                @role('teacher')
+                <li><a href="{{ url('depis') }}"><i class='fa fa-codepen'></i> <span>Proyectos Depis</span></a></li>
+                @endrole
             </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
