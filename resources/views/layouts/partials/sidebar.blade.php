@@ -71,8 +71,8 @@
                 <li class="treeview">
                     <a href="#"><i class='fa fa-bank'></i> <span>Banco de Proyectos</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Registrar</a></li>
-                        <li><a href="#">Empresas</a></li>
+                        <li><a href="{{url(residentAdmins)}}">Registrar</a></li>
+                        <li><a href="{{url('residents')}}">Empresas</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ url('home') }}"><i class='fa fa-calendar '></i> <span>Eventos</span></a></li>
