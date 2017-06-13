@@ -48,7 +48,7 @@ Lista de solicitudes para:
                         <a href="{!! route('vacancies.delete', [$vacancy->id]) !!}" onclick="return confirm('Are you sure wants to delete this Vacancy?')"><i class="glyphicon glyphicon-remove"></i></a>
                     </td>
                 </tr>
-               
+           
                 @endforeach
             </table>
         </div>

@@ -9,7 +9,7 @@
         @include('sweet::alert')
 
         <div class="row">
-        <h1 class="pull-left">Servicio Social</h1>
+        <h1 class="pull-left">Mis Solicitudes de Servicio Social</h1>
             <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('serviceAdmins.create') !!}">Agregar Nuevo</a>
         </div>
 

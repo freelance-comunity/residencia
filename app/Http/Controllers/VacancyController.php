@@ -133,6 +133,7 @@ class VacancyController extends AppBaseController
 	 */
 	public function update($id, CreateVacancyRequest $request)
 	{
+		
 		/** @var Vacancy $vacancy */
 		$vacancy = Vacancy::find($id);
 
@@ -178,5 +179,13 @@ class VacancyController extends AppBaseController
 	public function vacancyphoto(){
 		return view ('vacancies.upload', array('vacancy'));
 	}
+	public function viewvacancys($id)
+	{
+		$user = User::find($id);
+		$vacancy = $user->vacancy;		
+		return view('vacancies.index')
+		->with('vacancy', $vacancy);
+	}
+	
 
 }

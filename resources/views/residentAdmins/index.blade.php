@@ -9,7 +9,7 @@ Lista de solicitudes para:
     @include('sweet::alert')
 
     <div class="row">
-        <h1 class="pull-left">Residentes</h1>
+        <h1 class="pull-left">Mis Solicitudes Para Residentes</h1>
         <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('residentAdmins.create') !!}">Agregar Nuevo</a>
     </div>
 

@@ -1,6 +1,6 @@
-@extends('app')
+@extends('layouts.app')
 
-@section('content')
+@section('main-content')
 
     <div class="container">
 
@@ -8,7 +8,7 @@
 
         <div class="row">
             <h1 class="pull-left">Teachers</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('teachers.create') !!}">Add New</a>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('teachers.create') !!}">Crear Nuevo</a>
         </div>
 
         <div class="row">

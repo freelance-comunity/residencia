@@ -18,6 +18,9 @@ Home
 			@role('graduate')
 				@include('partials.home-graduate')
 			@endrole
+			@role('company')
+				@include('partials.home-company')
+			@endrole	
 			<!-- /.col -->
 
 		</div>

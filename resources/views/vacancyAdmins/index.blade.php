@@ -9,7 +9,7 @@ Lista de solicitudes para:
     @include('sweet::alert')
 
     <div class="row">
-        <h1 class="pull-left">Vacantes</h1>
+        <h1 class="pull-left">Mis Vacantes</h1>
         <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('vacancyAdmins.create') !!}">Agregar Nuevo</a>
     </div>
 

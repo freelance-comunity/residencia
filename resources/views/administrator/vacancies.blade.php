@@ -7,8 +7,7 @@
     @include('sweet::alert')
 
     <div class="row">
-        <h1 class="pull-left">Vacantes</h1>
-        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('vacancyAdmins.create') !!}">Agregar nuevo</a>
+        <h1 class="pull-left">Solicitudes de Vacantes de Empresas</h1>
     </div>
 
     <div class="row">
@@ -44,7 +43,6 @@
                         <td>{!! $vacancy->email !!}</td>
                         <td>{!! $vacancy->period !!}</td>
                         <td>
-                            <a href="{!! route('vacancies.edit', [$vacancy->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="{!! route('vacancies.delete', [$vacancy->id]) !!}" onclick="return confirm('Are you sure wants to delete this Vacancy?')"><i class="glyphicon glyphicon-remove"></i></a>
                         </td>
                     </tr>

@@ -32,7 +32,7 @@
                         <td>{!! $company->contact !!}</td>
                       
                         <td>
-                            <a href="{!! route('companies.delete', [$company->id]) !!}" class="btn bg-red" onclick="return confirm('¿Estas seguro de eliminar a esta Empresa?')"><i class="fa fa-trash"></i> Eliminar</a>
+                            <a href="{!! url('view-company', [$company->id]) !!}" class="btn bg-navy")"><i class="fa fa-trash"></i> Ver Perfil</a>
                         </td>
                     </tr>
                     @endforeach
