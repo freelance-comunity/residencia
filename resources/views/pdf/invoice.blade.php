@@ -45,27 +45,27 @@
 				@else
 				<div class="sectionContent">
 					<article>
-						<p class="subDetails"><strong>Fecha de Nacimiento</strong></p>
+						<p class="subDetails"><strong>Fecha de Nacimiento:</strong></p>
 						<p>{{$data->birthday}}.</p>
 					</article>
 					<article>
-						<p class="subDetails"><strong>Empresa de Trabajo</strong></p>
+						<p class="subDetails"><strong>Empresa de Trabajo:</strong></p>
 						<p>{{ $data->labor->company_name}}.</p>
 					</article>
 					<article>
-						<p class="subDetails"><strong>Teléfono de la Empresa</strong></p>
+						<p class="subDetails"><strong>Teléfono de la Empresa:</strong></p>
 						<p>{{ $data->labor->company_phone}}.</p>
 					</article>
 					<article>
-						<p class="subDetails"><strong>Puesto Ocupado</strong></p>
+						<p class="subDetails"><strong>Puesto Ocupado:</strong></p>
 						<p>{{ $data->labor->position}}.</p>
 					</article>
 					<article>
-						<p class="subDetails"><strong>Área de Trabajo</strong></p>
+						<p class="subDetails"><strong>Área de Trabajo:</strong></p>
 						<p>{{ $data->labor->work_area}}.</p>
 					</article>
 					<article>
-						<p class="subDetails"><strong>Salario Percibido</strong></p>
+						<p class="subDetails"><strong>Salario Percibido:</strong></p>
 						<p>${{ $data->labor->salary}}.00</p>
 					</article>
 				</div>
@@ -81,47 +81,47 @@
 				@else
 				<div class="sectionContent">
 					<article>
-						<p class="subDetails">Página de Facebook ó Twitter</p>
+						<p class="subDetails"><strong>Página de Facebook ó Twitter:</strong></p>
 						<p>{{$data->poll->question_4}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">Periodo de Egreso</p>
+						<p class="subDetails"><strong>Periodo de Egreso:</strong></p>
 						<p>{{$data->poll->question_5}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">Titulado</p>
+						<p class="subDetails"><strong>Titulado:</strong></p>
 						<p>{{$data->poll->question_6}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">¿Cuánto tiempo tardo en encontrar su primer empleo después de egresar?</p>
+						<p class="subDetails"><strong>¿Cuánto tiempo tardo en encontrar su primer empleo después de egresar?</strong></p>
 						<p>{{$data->poll->question_7}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">¿Por qué medio obtuvo su trabajo actual?</p>
+						<p class="subDetails"><strong>¿Por qué medio obtuvo su trabajo actual?</strong></p>
 						<p>{{$data->poll->question_8}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">Nombre de la empresa, institución u prganización en que labora actualmente</p>
+						<p class="subDetails"><strong>Nombre de la empresa, institución u prganización en que labora actualmente:</strong></p>
 						<p>{{$data->poll->question_9}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">Tipo de institución en la que labora</p>
+						<p class="subDetails"><strong>Tipo de institución en la que labora:</strong></p>
 						<p>{{$data->poll->question_10}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">Menciona el sector económico al que pertenece la empresa u organización en la que labora</p>
+						<p class="subDetails"><strong>Menciona el sector económico al que pertenece la empresa u organización en la que labora:</p>
 						<p>{{$data->poll->question_11}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">¿Qué tan relacionado con sus estudios de licenciatura está el trabajo que actualmente desempeña?</p>
+						<p class="subDetails"><strong>¿Qué tan relacionado con sus estudios de licenciatura está el trabajo que actualmente desempeña?</strong></p>
 						<p>{{$data->poll->question_12}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">La formación obtenida en el instituto le permitió responder a las demandas de</p>
+						<p class="subDetails"><strong>La formación obtenida en el instituto le permitió responder a las demandas de:</strong></p>
 						<p>{{$data->poll->question_13}}.</p>
 					</article>
 					<article>
-						<p class="subDetails">En qué área te desempeñas actualmente</p>
+						<p class="subDetails"><strong>En qué área te desempeñas actualmente:</strong></p>
 						<p>{{$data->poll->question_14}}.</p>
 					</article>
 				</div>

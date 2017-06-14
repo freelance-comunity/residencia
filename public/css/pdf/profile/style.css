@@ -136,9 +136,11 @@ section:last-child {
 }
 
 .subDetails {
-	font-size: 0.8em;
+	font-size: 0.12em;
 	font-style: italic;
 	margin-bottom: 3px;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 .keySkills {
