@@ -41,6 +41,10 @@ desired effect
 @role('company')
 <body class="skin-yellow sidebar-mini">
 @endrole
+@role('teacher')
+<body class="skin-blue sidebar-mini">
+@endrole
+
 <div class="wrapper">
 
     @include('layouts.partials.mainheader')

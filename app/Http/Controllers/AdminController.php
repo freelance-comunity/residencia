@@ -11,6 +11,7 @@ use App\Models\Company;
 use App\Models\Service;
 use App\Models\Residents;
 use App\Models\Vacancy;
+use App\Models\Teacher;
 use App\User;
 use App\Role;
 use Hash;   
@@ -105,6 +106,39 @@ class AdminController extends Controller
         $input['user_id'] = $id;
         /*==== End Create User for Graduate ====*/
         $company = Company::create($input);  
+
+        Auth::login($user);
+        return redirect('/home');
+    }  
+
+     public function teacher(CreateTeacherRequest $request)
+    {
+        $input = $request->all();
+        /*==== Create User for Graduate ====*/
+        $role = Role::where('name', 'teacher')->first();
+        $data['name'] = $request->input('name');
+        $data['email'] = $request->input('email');
+        $data['password'] = Hash::make($request->input('password'));
+        $usercreate = User::create($data);
+        $id = $usercreate->id;
+        $user = User::find($id);
+
+        $datamail['name'] = $request->input('name');
+        $datamail['pass'] = $password_random;
+        $datamail['email'] = $request->input('email');
+
+
+        Mail::send('mailer.register', ['datamail' => $datamail], function($mail) use($datamail){
+            $mail->subject('Te proporcionamos las credenciales de acceso al sistema');
+            $mail->to($datamail['email'], $datamail['name'], $datamail['pass']);
+        });
+
+        $email = $user->email;
+        $password = $user->password;
+        $user->attachRole($role);
+        $input['user_id'] = $id;
+        /*==== End Create User for Graduate ====*/
+        $teacher = Teacher::create($input);  
 
         Auth::login($user);
         return redirect('/home');

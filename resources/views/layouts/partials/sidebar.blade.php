@@ -30,7 +30,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ url('allgraduates') }}">Egresados</a></li>
                     <li><a href="{{ url('allcompanies') }}">Empresas</a></li>
-                    <li><a href="#">Docentes</a></li>
+                    <li><a href="{{ url('teachers') }}">Docentes</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -71,8 +71,8 @@
                 <li class="treeview">
                     <a href="#"><i class='fa fa-bank'></i> <span>Banco de Proyectos</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Registrar</a></li>
-                        <li><a href="#">Empresas</a></li>
+                        <li><a href="{{url('residentAdmins')}}">Registrar</a></li>
+                        <li><a href="{{url('residents')}}">Empresas</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ url('home') }}"><i class='fa fa-calendar '></i> <span>Eventos</span></a></li>
@@ -81,18 +81,17 @@
                     <a href="#"><i class='fa fa-cog'></i> <span>Utilerías</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="{{ url('periods') }}">Periodos</a></li>
-                        <li><a href="#">Empresas</a></li>
                     </ul>
                 </li>
                 @endrole
 
                 @role('company') 
-                    
-                <li class="active"><a href="{{ url('view-company')}}/{{ Auth::user()->id}}"><i class='fa fa-building-o '></i> <span>Mi Perfil</span></a></li>
-                <li class="active"><a href="{{ url('vacancies') }}"><i class='fa fa-code '></i> <span>Solicitud de Vacantes</span></a></li>
+               
+                <li class="active"><a href="{{url('viewcompanys')}}/{{Auth::user()->id}}"><i class='fa fa-building-o '></i> <span>Mi Perfil</span></a></li>
+                <li class="active"><a href="{{url('vacancies')}}"><i class='fa fa-code '></i> <span>Solicitud de Vacantes</span></a></li>
                 <li class="active"><a href="{{ url('residents') }}"><i class='fa fa-laptop '></i> <span>Solicitud de residentes</span></a></li>
                 <li class="active"><a href="{{ url('services') }}"><i class='fa fa-book'></i> <span>Solicitud de Servicio Social</span></a></li> 
-  
+              
                 @endrole 
 
                 @role('graduate')
@@ -115,6 +114,9 @@
                     </ul>
                 </li>
                 <li><a href="{{ url('viewvacancies') }}"><i class='fa fa-briefcase'></i> <span>Bolsa de trabajo</span></a></li>
+                @endrole
+                @role('teacher')
+                <li><a href="{{ url('depis') }}"><i class='fa fa-codepen'></i> <span>Proyectos Depis</span></a></li>
                 @endrole
             </ul><!-- /.sidebar-menu -->
         </section>

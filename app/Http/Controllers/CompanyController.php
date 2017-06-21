@@ -177,4 +177,12 @@ class CompanyController extends AppBaseController
 
 		return redirect(route('companies.index'));
 	}
+	public function viewcompanys($id)
+	{
+		$user = User::find($id);
+		$company = $user->company;		
+		return view('companies.show')
+		->with('company', $company);
+	}
+	
 }

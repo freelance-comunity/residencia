@@ -29,6 +29,13 @@ Route::get('/roles', function() {
     $admin->display_name = 'Usuario Empresa'; // optional
     $admin->description  = 'Empresa la cual podra publicar sus vacantes en SEDSC'; // optional
     $admin->save();
+    
+
+    $admin = new App\Role();
+    $admin->name         = 'teacher';
+    $admin->display_name = 'Usuario Docente'; // optional
+    $admin->description  = 'Docente el cual podra publicar sus proyectos en SEDSC'; // optional
+    $admin->save();
     echo "Listo";
 });
 /*============== Main Routes ==============*/
@@ -87,22 +94,32 @@ Route::get('companies/{id}/delete', [
 
 Route::get('view-company/{id}', function($id){
   $company = App\Models\Company::find($id);
-
-  return view('companies.show')  
-  ->with('company', $company);
+  if(empty($company))
+  {
+    Flash::error('Graduate not found');
+    return redirect(route('companies.index'));
+}
+return view('companies.show')  
+->with('company', $company);
+});
+Route::get('viewcompany/{id}', function($id){
+  $company = App\Models\Company::find($id);
+  if(empty($company))
+  {
+    Flash::error('Graduate not found');
+    return redirect(route('companies.index'));
+}
+return view('companies.show')  
+->with('company', $company);
 });
 
-Route::get('viewcompany/{id}', function($id) {
-    $company = App\Models\Company::find($id);
-    $user = $company->user;
-    return view('administrator.show-company')
-    ->with('company', $company)
-    ->with('user', $user);
-});
+Route::get('/viewcompanys/{id}', 'CompanyController@viewcompanys');
+Route::get('/viewvacancys/{id}', 'VacancyController@viewvacancys');
 
 Route::get('viewvacacy/{id}', function($id) {
     $vacancy = App\Models\Vacancy::find($id);   
-     $user = $company->user; 
+    $user = $company->user; 
+    $vacancy = $user->vacancy;
     return view('vacancies.viewvacacy')
     ->with('company', $company)
     ->with('vacancy', $vacancy);
@@ -110,35 +127,35 @@ Route::get('viewvacacy/{id}', function($id) {
 /*============== End Main Routes ==============*/
 Route::group(['middleware' => 'auth'], function(){
 
-   Route::resource('labors', 'LaborController');
+ Route::resource('labors', 'LaborController');
 
-   Route::get('labors/{id}/delete', [
+ Route::get('labors/{id}/delete', [
     'as' => 'labors.delete',
     'uses' => 'LaborController@destroy',
     ]);
 
 
-   Route::resource('vacancies', 'VacancyController');
+ Route::resource('vacancies', 'VacancyController');
 
-   Route::get('vacancies/{id}/delete', [
+ Route::get('vacancies/{id}/delete', [
     'as' => 'vacancies.delete',
     'uses' => 'VacancyController@destroy',
     ]); 
 
-   Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
+ Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 
 
-   Route::resource('residents', 'ResidentsController');
+ Route::resource('residents', 'ResidentsController');
 
-   Route::get('residents/{id}/delete', [
+ Route::get('residents/{id}/delete', [
     'as' => 'residents.delete',
     'uses' => 'ResidentsController@destroy',
     ]);
 
 
-   Route::resource('services', 'ServiceController');
+ Route::resource('services', 'ServiceController');
 
-   Route::get('services/{id}/delete', [
+ Route::get('services/{id}/delete', [
     'as' => 'services.delete',
     'uses' => 'ServiceController@destroy',
     ]);
@@ -192,8 +209,8 @@ Route::get('chatgraduates', function() {
 Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
 
 Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
- Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
- Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+   Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+   Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
 
 Route::get('viewvacancies', function() {
@@ -276,4 +293,20 @@ Route::resource('residentAdmins', 'ResidentAdminController');
 Route::get('residentAdmins/{id}/delete', [
     'as' => 'residentAdmins.delete',
     'uses' => 'ResidentAdminController@destroy',
+    ]);
+
+
+Route::resource('depis', 'DepiController');
+
+Route::get('depis/{id}/delete', [
+    'as' => 'depis.delete',
+    'uses' => 'DepiController@destroy',
+    ]);
+
+
+Route::resource('teachers', 'TeacherController');
+
+Route::get('teachers/{id}/delete', [
+    'as' => 'teachers.delete',
+    'uses' => 'TeacherController@destroy',
     ]);

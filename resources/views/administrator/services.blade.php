@@ -7,8 +7,7 @@
     @include('sweet::alert')
 
     <div class="row">
-        <h1 class="pull-left">Servicio Social</h1>
-        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('serviceAdmins.create') !!}">Agregar Nuevo</a>
+        <h1 class="pull-left">Solicitudes Servicio Social de Empresa</h1>
     </div>
 
     <div class="row">
@@ -33,7 +32,6 @@
                         <td>{!! $service->contact !!}</td>
                         <td>{!! $service->period !!}</td>
                         <td>
-                            <a href="{!! route('services.edit', [$service->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="{!! route('services.delete', [$service->id]) !!}" onclick="return confirm('Are you sure wants to delete this Service?')"><i class="glyphicon glyphicon-remove"></i></a>
                         </td>
                     </tr>

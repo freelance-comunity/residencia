@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Models\Vacancy' =>'App\Policies\VacancyPolicy',
     ];
 
     /**
@@ -26,8 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        $gate->define('read-vacancies', function($company, $vacancy){
-            return $company->id === $vacancy->company_id;
+        $gate->define('read-vacancies', function($user, $vacancy){
+            return $user->id === $vacancy->user_id;
         });
     }
 }

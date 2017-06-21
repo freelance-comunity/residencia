@@ -76,8 +76,7 @@ Mis datos
                                                     <strong>Dirección: </strong>{{ $company->address}} <br>
                                                     <strong>Teléfono celular:</strong> {{ $company->phone}} <br>
                                                     <strong>Director:</strong> {{ $company->director}} <br> 
-                                                    <strong>Contacto directo: </strong>{{ $company->contact}} <br>   
-                                                    <strong>Sexo:</strong> {{$company->period}} <br>  
+                                                    <strong>Contacto directo: </strong>{{ $company->contact}} <br>    
                                                 </div>
                                             </div>
                                         </li>

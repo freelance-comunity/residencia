@@ -7,8 +7,7 @@
     @include('sweet::alert')
 
     <div class="row">
-        <h1 class="pull-left">Residentes</h1>    
-        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('residentAdmins.create') !!}">Agregar nuevo</a>
+        <h1 class="pull-left">Solicitudes de las Empresas para Residentes</h1>    
     </div>
 
     <div class="row">
@@ -46,10 +45,9 @@
                         <td>{!! $residents->phone !!}</td>
                         <td>{!! $residents->cel !!}</td>
                         <td>{!! $residents->email !!}</td>
-                        <td>{!! $residents->status !!}</td>
                         <td>{!! $residents->period !!}</td>
+                        <td>{!! $residents->status !!}</td>
                         <td>
-                            <a href="{!! route('residents.edit', [$residents->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="{!! route('residents.delete', [$residents->id]) !!}" onclick="return confirm('Are you sure wants to delete this Residents?')"><i class="glyphicon glyphicon-remove"></i></a>
                         </td>
                     </tr>

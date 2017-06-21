@@ -49,8 +49,8 @@ Lista de solicitudes para:
                         <td>{!! $residents->phone !!}</td>
                         <td>{!! $residents->cel !!}</td>
                         <td>{!! $residents->email !!}</td>
-                        <td>{!! $residents->status !!}</td>
                         <td>{!! $residents->period !!}</td>
+                        <td>{!! $residents->status !!}</td>
                         <td>
                             <a href="{!! route('residents.edit', [$residents->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="{!! route('residents.delete', [$residents->id]) !!}" onclick="return confirm('Are you sure wants to delete this Residents?')"><i class="glyphicon glyphicon-remove"></i></a>

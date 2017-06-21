@@ -7,7 +7,7 @@
     @include('flash::message')
 
     <div class="row">
-        <h1 class="pull-left">Companies</h1>
+        <h1 class="pull-left">Empresas</h1>
         <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{{ url('create-company') }}">Add New</a>
     </div>
 

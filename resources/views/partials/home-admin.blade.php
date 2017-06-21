@@ -5,11 +5,16 @@ Bienvenido de Nuevo, {{Auth::user()->name}}
 $graduates = App\Models\Graduate::all()->count();
 $companies = App\Models\Company::all()->count();
 $vacancies = App\Models\Vacancy::all()->count();
+$residents = App\Models\Residents::all()->count();
+$service = App\Models\Service::all()->count();
+$vacancyAdmins = App\Models\VacancyAdmin::all()->count();
+$residentAdmins = App\Models\ResidentAdmin::all()->count();
+$serviceAdmins = App\Models\ServiceAdmin::all()->count();
 @endphp
 <div class="row">
 	<div class="col-lg-3 col-xs-6">
 		<!-- small box -->
-		<div class="small-box bg-aqua">
+		<div class="small-box bg-teal">
 			<div class="inner">
 				<h3>{{$graduates}}</h3>
 
@@ -60,7 +65,7 @@ $vacancies = App\Models\Vacancy::all()->count();
 	<!-- ./col -->
 	<div class="col-lg-3 col-xs-6">
 		<!-- small box -->
-		<div class="small-box bg-red">
+		<div class="small-box bg-purple">
 			<div class="inner">
 				<h3>{{$vacancies}}</h3>
 
@@ -70,6 +75,86 @@ $vacancies = App\Models\Vacancy::all()->count();
 				<i class="fa fa-suitcase"></i>
 			</div>
 			<a href="{{ url('allvacancies') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-black">
+			<div class="inner">
+				<h3>{{$residents}}</h3>
+
+				<p>Residentes Disponibles</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-suitcase"></i>
+			</div>
+			<a href="{{ url('allresidents') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-primary">
+			<div class="inner">
+				<h3>{{$service}}</h3>
+
+				<p>Servicio Social Disponibles</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-suitcase"></i>
+			</div>
+			<a href="{{ url('allservices') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-red">
+			<div class="inner">
+				<h3>{{$vacancyAdmins}}</h3>
+
+				<p>Mis Vacantes Disponibles</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-suitcase"></i>
+			</div>
+			<a href="{{ url('vacancyAdmins') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-maroon">
+			<div class="inner">
+				<h3>{{$residentAdmins}}</h3>
+
+				<p>Mis Solicitudes de Residentes</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-suitcase"></i>
+			</div>
+			<a href="{{ url('residentAdmins') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-olive">
+			<div class="inner">
+				<h3>{{$serviceAdmins}}</h3>
+
+				<p>Mis Solicitudes de Servicio Social</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-suitcase"></i>
+			</div>
+			<a href="{{ url('serviceAdmins') }}" class="small-box-footer">
 				Ver <i class="fa fa-arrow-circle-right"></i>
 			</a>
 		</div>
