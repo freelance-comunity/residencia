@@ -1,6 +1,47 @@
 @section('contentheader_title')
 Bienvenido de Nuevo, {{Auth::user()->name}}
 @endsection
+@php
+$graduates = App\Models\Graduate::all()->count();
+$companies = App\Models\Company::all()->count();
+$vacancies = App\Models\Vacancy::all()->count();
+@endphp
+<div class="row">
+	<div class="col-lg-6 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-green">
+			<div class="inner">
+				<h3>{{$companies}}<sup style="font-size: 20px"></sup></h3>
+
+				<p>Empresas Contratandos</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-building"></i>
+			</div>
+			<a href="{{ url('allcompanies') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-6 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-red">
+			<div class="inner">
+				<h3>{{$vacancies}}</h3>
+
+				<p>Vacantes Disponibles</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-suitcase"></i>
+			</div>
+			<a href="{{ url('allvacancies') }}" class="small-box-footer">
+				Ver <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+</div>
 <div class="col-md-6">
 	<!-- DIRECT CHAT -->
 	<div class="box box-warning direct-chat direct-chat-warning">
