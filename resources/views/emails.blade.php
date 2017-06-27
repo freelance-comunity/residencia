@@ -1,1 +1,4 @@
-<h1>Mensaje desde residencia.com</h1>
+<h1>{{$user['title']}}</h1>
+<p>
+	{{$user['message']}}
+</p>

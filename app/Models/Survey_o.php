@@ -27,4 +27,9 @@ class Survey_o extends Model
 		"o_status" => "required"
 	];
 
+
+	public function question()
+	{
+		return $this->belongsTo('App\Models\Survey_q');
+	}
 }

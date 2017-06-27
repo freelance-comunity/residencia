@@ -48,10 +48,18 @@ class Survey_oController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function create($id)
+	public function create()
 	{	
+		//$question = Survey_q::find($id);
+		return view('surveyOs.create');
+	}
+
+	public function createCustom($id)
+	{
 		$question = Survey_q::find($id);
-		return view('surveyOs.create')
+		$surveyOs = Survey_o::where('q_id', $question->id)->get();
+		return view('surveyOs.index')
+		->with('surveyOs', $surveyOs)
 		->with('question', $question);
 	}
 
@@ -66,12 +74,16 @@ class Survey_oController extends AppBaseController
 	{
         $input = $request->all();
 
-		/*$surveyO = Survey_o::create($input);
+		$surveyO = Survey_o::create($input);
 
 		Flash::message('Survey_o saved successfully.');
 
-		return redirect(route('surveyOs.index'));*/
-		echo "hello world!";
+		$question = Survey_q::find($request->input('q_id'));
+		$surveyOs = Survey_o::where('q_id', $question->id)->get();
+
+		return view('surveyOs.index')
+		->with('surveyOs', $surveyOs)
+		->with('question', $question);
 	}
 
 	/**

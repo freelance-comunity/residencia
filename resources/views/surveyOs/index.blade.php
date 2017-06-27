@@ -5,27 +5,26 @@
 <div class="container">
 
     @include('flash::message')
-
     <div class="row">
-        <h1 class="pull-left">Survey_os</h1>
-        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('surveyOs.create') !!}">Add New</a>
+        <h1 class="pull-left">Opciones de la pregunta "{{$question->q_text}}"</h1>
+        <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{{ url('create-option') }}/{{$question->id}}">Agregar Opción</a>
     </div>
-
+   
     <div class="row">
         @if($surveyOs->isEmpty())
-        <div class="well text-center">No Survey_os found.</div>
+        <div class="well text-center">No hay opciones registradas.</div>
         @else
-        <table class="table">
+        <table class="table" id="myTable">
             <thead>
-                <th>O Text</th>
-                <th>O Value</th>
-                <th>Survey Id</th>
-                <th>Q Id</th>
-                <th>O Status</th>
-                <th width="50px">Action</th>
+                <th>Texto</th>
+                <th>Value</th>
+                <th>ID encuesta</th>
+                <th>ID pregunta</th>
+                <th>Estatus</th>
+                <th width="50px">Acción</th>
             </thead>
             <tbody>
-               
+
                 @foreach($surveyOs as $surveyO)
                 <tr>
                     <td>{!! $surveyO->o_text !!}</td>

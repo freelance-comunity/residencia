@@ -1,4 +1,4 @@
-<!-- Left side column. contains the logo and sidebar -->
+}<!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
@@ -83,6 +83,7 @@
                         <li><a href="{{ url('surveys') }}">Encuestas</a></li>
                         <li><a href="{{ url('periods') }}">Periodos</a></li>
                         <li><a href="{{ url('directory') }}">Directorio</a></li>
+                        <li><a href="{{ url('shippings') }}">Correos Masivos</a></li>
                     </ul>
                 </li>
                 @endrole

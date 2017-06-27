@@ -27,7 +27,6 @@
             <tbody>
 
                 @foreach($surveyQs as $surveyQ)
-                @include('surveyQs.addModal')
                 <tr>
                     <td>{!! $surveyQ->q_format !!}</td>
                     <td>{!! $surveyQ->q_text !!}</td>
@@ -35,7 +34,7 @@
                     <td>{!! $surveyQ->q_status !!}</td>
                     <td>
                         @if ($surveyQ->q_format == "SELECTED")
-                    <a href="{!! route('surveyOs.create') !!}" class="btn bg-maroon btn-lg">Agregar</a>
+                    <a href="{{ url('addOption') }}/{{$surveyQ->id}}" class="btn bg-teal btn-lg">Agregar</a>
                     @else
                     <button class="btn bg-navy btn-lg">Inhabilitado</button>
                     @endif

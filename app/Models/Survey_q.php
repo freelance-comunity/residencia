@@ -31,4 +31,9 @@ class Survey_q extends Model
 		return $this->belongsTo('App\Models\Survey');
 	}
 
+	public function options()
+	{
+		return $this->hasMany('App\Models\Survey_o');
+	}
+
 }

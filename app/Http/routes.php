@@ -124,35 +124,35 @@ Route::get('viewvacacy/{id}', function($id) {
 /*============== End Main Routes ==============*/
 Route::group(['middleware' => 'auth'], function(){
 
-   Route::resource('labors', 'LaborController');
+ Route::resource('labors', 'LaborController');
 
-   Route::get('labors/{id}/delete', [
+ Route::get('labors/{id}/delete', [
     'as' => 'labors.delete',
     'uses' => 'LaborController@destroy',
     ]);
 
 
-   Route::resource('vacancies', 'VacancyController');
+ Route::resource('vacancies', 'VacancyController');
 
-   Route::get('vacancies/{id}/delete', [
+ Route::get('vacancies/{id}/delete', [
     'as' => 'vacancies.delete',
     'uses' => 'VacancyController@destroy',
     ]); 
 
-   Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
+ Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 
 
-   Route::resource('residents', 'ResidentsController');
+ Route::resource('residents', 'ResidentsController');
 
-   Route::get('residents/{id}/delete', [
+ Route::get('residents/{id}/delete', [
     'as' => 'residents.delete',
     'uses' => 'ResidentsController@destroy',
     ]);
 
 
-   Route::resource('services', 'ServiceController');
+ Route::resource('services', 'ServiceController');
 
-   Route::get('services/{id}/delete', [
+ Route::get('services/{id}/delete', [
     'as' => 'services.delete',
     'uses' => 'ServiceController@destroy',
     ]);
@@ -206,8 +206,8 @@ Route::get('chatgraduates', function() {
 Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
 
 Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
- Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
- Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+   Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+   Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
 
 Route::get('viewvacancies', function() {
@@ -359,18 +359,41 @@ Route::get('surveyAs/{id}/delete', [
 
 Route::get('viewQuestions/{id}', 'SurveyController@viewQuestions');
 
-Route::get('addOption/{id}', 'Survey_oController@create');
+Route::get('addOption/{id}', 'Survey_oController@createCustom');
 
-Route::get('mails', function(){
+Route::get('create-option/{id}', function($id) {
+    $question = App\Models\Survey_q::find($id);
 
+    return view('surveyOs.create')
+    ->with('question', $question);
+});
+
+Route::get('mails/{id}', function($id){
+    $shipping = App\Models\Shipping::find($id);
     $users = App\User::all();
 
     foreach ($users as $user) {
-        Mail::send('emails', [], function($message) use ($user)
+        $user['message'] = $shipping->body;
+        $user['email']   = $user->email;
+        $user['name']    = $user->name;
+        $user['title']   = $shipping->title;
+        Mail::send('emails', ['user' => $user], function($mail) use ($user)
         {
-            $message->from('admin@laravel.com', 'Administrador');
-            $message->to($user->email, $user->name)->subject('Tenemos novedades para ti '. $user->name);
+            $mail->subject('Tenemos nuevas cosas para ti '. $user['name']);
+            $mail->to($user['email'], $user['name'], $user['message'], $user['title']);
         });
     }
-    return "Se he enviado el email";
+
+    Alert::success('Mensaje Enviado Exitosamente.');
+    return redirect(route('shippings.index'));
 });
+
+
+
+
+Route::resource('shippings', 'ShippingController');
+
+Route::get('shippings/{id}/delete', [
+    'as' => 'shippings.delete',
+    'uses' => 'ShippingController@destroy',
+    ]);
