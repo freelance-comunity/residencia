@@ -77,24 +77,32 @@
                 </li>
                 <li><a href="{{ url('home') }}"><i class='fa fa-calendar '></i> <span>Eventos</span></a></li>
                 <li><a href="{{ url('chatgraduates') }}"><i class='fa fa-comment'></i> <span>Chat</span></a></li>
-                  <li class="treeview">
+                <li class="treeview">
                     <a href="#"><i class='fa fa-cog'></i> <span>Utilerías</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
+                        <li><a href="{{ url('surveys') }}">Encuestas</a></li>
                         <li><a href="{{ url('periods') }}">Periodos</a></li>
+                        <li><a href="{{ url('directory') }}">Directorio</a></li>
                     </ul>
                 </li>
                 @endrole
 
                 @role('company') 
-               
+
                 <li class="active"><a href="{{url('viewcompanys')}}/{{Auth::user()->id}}"><i class='fa fa-building-o '></i> <span>Mi Perfil</span></a></li>
                 <li class="active"><a href="{{url('vacancies')}}"><i class='fa fa-code '></i> <span>Solicitud de Vacantes</span></a></li>
                 <li class="active"><a href="{{ url('residents') }}"><i class='fa fa-laptop '></i> <span>Solicitud de residentes</span></a></li>
                 <li class="active"><a href="{{ url('services') }}"><i class='fa fa-book'></i> <span>Solicitud de Servicio Social</span></a></li> 
-              
+
                 @endrole 
 
                 @role('graduate')
+                @php
+                $graduate = Auth::user()->graduate;
+                $poll     = $graduate->poll;
+                @endphp
+                @if (is_null($poll))
+                @else
                 <li class="treeview">
                     <a href="#"><i class='fa fa-database'></i> <span>Mis datos</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
@@ -114,6 +122,7 @@
                     </ul>
                 </li>
                 <li><a href="{{ url('viewvacancies') }}"><i class='fa fa-briefcase'></i> <span>Bolsa de trabajo</span></a></li>
+                @endif
                 @endrole
                 @role('teacher')
                 <li><a href="{{ url('depis') }}"><i class='fa fa-codepen'></i> <span>Proyectos Depis</span></a></li>

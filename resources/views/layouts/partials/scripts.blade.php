@@ -23,6 +23,7 @@
   $(document).ready(function(){
     $('#myTable').DataTable({
       responsive: true,
+
       "language": {
         "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"
       },
@@ -34,7 +35,24 @@
     });
   });
 </script>
+<script>
+  $(document).ready(function(){
+    $('#period').DataTable({
+      responsive: true,
+      "oLanguage": {
+      "sSearch": "<span>INGRESA PERIODO A FILTRAR:</span> _INPUT_" //search
+      },
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"
+      },
+      dom: 'Bfrtip',
+      buttons: [
+      'excel', 'pdf', 'print'
+      ]
 
+    });
+  });
+</script>
 <script>
     $('.datepicker').datepicker({
         format: "dd/mm/yyyy",

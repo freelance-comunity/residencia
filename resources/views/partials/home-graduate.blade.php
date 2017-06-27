@@ -5,7 +5,34 @@ Bienvenido de Nuevo, {{Auth::user()->name}}
 $graduates = App\Models\Graduate::all()->count();
 $companies = App\Models\Company::all()->count();
 $vacancies = App\Models\Vacancy::all()->count();
+
+$graduate = Auth::user()->graduate;
+$poll     = $graduate->poll;
+$periods  = App\Models\Period::pluck('name', 'name');
 @endphp
+
+@if (is_null($poll))
+<div class="row">
+	<div class="col-md-12">
+		<h4 style="text-align: center;">Estimado <strong>{{ Auth::user()->name }}</strong> te invitamos a responder nuestra encuesta de seguimiento, <strong>para poder hacer uso de nuestros servicios.</strong></h4>
+	</div>	
+</div>
+<div class="container">
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<div class="box-body">
+				@include('common.errors')
+
+				{!! Form::open(['route' => 'polls.store']) !!}
+
+				@include('polls.fields-test')
+
+				{!! Form::close() !!}
+			</div>
+		</div>
+	</div>
+</div>
+@else
 <div class="row">
 	<div class="col-lg-6 col-xs-6">
 		<!-- small box -->
@@ -94,3 +121,4 @@ $vacancies = App\Models\Vacancy::all()->count();
 	<!--/.direct-chat -->
 </div>
 <!-- /.col -->
+@endif

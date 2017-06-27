@@ -1,13 +1,10 @@
 <?php
 
 Route::get('/testing', function(){
-    $inboxes = Talk::user(auth()->user()->id)->getInbox();
-    foreach ($inboxes as $inbox) {
-        echo "<h2>". $inbox->withUser->name. "</h2>";
+    $tests = App\Models\Test::all();
+    foreach ($tests as $key => $value) {
+        echo $value->number;
         echo "<br>";
-        echo "<p>". $inbox->thread->message. "</p>";
-        echo "<span>". $inbox->thread->humans_time. "</span>";
-        echo "<hr>";
     }
 });
 
@@ -127,35 +124,35 @@ Route::get('viewvacacy/{id}', function($id) {
 /*============== End Main Routes ==============*/
 Route::group(['middleware' => 'auth'], function(){
 
- Route::resource('labors', 'LaborController');
+   Route::resource('labors', 'LaborController');
 
- Route::get('labors/{id}/delete', [
+   Route::get('labors/{id}/delete', [
     'as' => 'labors.delete',
     'uses' => 'LaborController@destroy',
     ]);
 
 
- Route::resource('vacancies', 'VacancyController');
+   Route::resource('vacancies', 'VacancyController');
 
- Route::get('vacancies/{id}/delete', [
+   Route::get('vacancies/{id}/delete', [
     'as' => 'vacancies.delete',
     'uses' => 'VacancyController@destroy',
     ]); 
 
- Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
+   Route::get('vacancyphoto', 'VacancyController@vacancyphoto');
 
 
- Route::resource('residents', 'ResidentsController');
+   Route::resource('residents', 'ResidentsController');
 
- Route::get('residents/{id}/delete', [
+   Route::get('residents/{id}/delete', [
     'as' => 'residents.delete',
     'uses' => 'ResidentsController@destroy',
     ]);
 
 
- Route::resource('services', 'ServiceController');
+   Route::resource('services', 'ServiceController');
 
- Route::get('services/{id}/delete', [
+   Route::get('services/{id}/delete', [
     'as' => 'services.delete',
     'uses' => 'ServiceController@destroy',
     ]);
@@ -209,8 +206,8 @@ Route::get('chatgraduates', function() {
 Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
 
 Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
-   Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
-   Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+ Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+ Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 });
 
 Route::get('viewvacancies', function() {
@@ -310,3 +307,70 @@ Route::get('teachers/{id}/delete', [
     'as' => 'teachers.delete',
     'uses' => 'TeacherController@destroy',
     ]);
+
+
+Route::resource('tests', 'TestController');
+
+Route::get('tests/{id}/delete', [
+    'as' => 'tests.delete',
+    'uses' => 'TestController@destroy',
+    ]);
+
+
+Route::get('directory', function(){
+    $graduates = App\Models\Graduate::all();
+
+    return view('administrator.directory')
+    ->with('graduates', $graduates);
+});
+
+
+
+Route::resource('surveys', 'SurveyController');
+
+Route::get('surveys/{id}/delete', [
+    'as' => 'surveys.delete',
+    'uses' => 'SurveyController@destroy',
+    ]);
+
+
+Route::resource('surveyQs', 'Survey_qController');
+
+Route::get('surveyQs/{id}/delete', [
+    'as' => 'surveyQs.delete',
+    'uses' => 'Survey_qController@destroy',
+    ]);
+
+
+Route::resource('surveyOs', 'Survey_oController');
+
+Route::get('surveyOs/{id}/delete', [
+    'as' => 'surveyOs.delete',
+    'uses' => 'Survey_oController@destroy',
+    ]);
+
+
+Route::resource('surveyAs', 'Survey_aController');
+
+Route::get('surveyAs/{id}/delete', [
+    'as' => 'surveyAs.delete',
+    'uses' => 'Survey_aController@destroy',
+    ]);
+
+Route::get('viewQuestions/{id}', 'SurveyController@viewQuestions');
+
+Route::get('addOption/{id}', 'Survey_oController@create');
+
+Route::get('mails', function(){
+
+    $users = App\User::all();
+
+    foreach ($users as $user) {
+        Mail::send('emails', [], function($message) use ($user)
+        {
+            $message->from('admin@laravel.com', 'Administrador');
+            $message->to($user->email, $user->name)->subject('Tenemos novedades para ti '. $user->name);
+        });
+    }
+    return "Se he enviado el email";
+});
