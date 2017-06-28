@@ -190,6 +190,9 @@ Route::get('allcompanies', 'AdminController@companies');
 Route::get('create-company', 'AdminController@createCompany');
 Route::post('create-company', 'AdminController@storeCompany');
 
+Route::get('create-teacher', 'AdminController@createTeacher');
+Route::post('create-teacher', 'AdminController@teacher');
+
 Route::get('allservices', 'AdminController@services');
 Route::get('allresidents', 'AdminController@residents');
 Route::get('allvacancies', 'AdminController@vacancies');

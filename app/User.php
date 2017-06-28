@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Graduate');
 
     }
+    public function teacher()
+    {
+        return $this->hasOne('App\Models\Teacher');
+
+    }
 
     public function getAvatarAttribute()
     {

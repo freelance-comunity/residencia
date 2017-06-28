@@ -5,7 +5,7 @@
 
     @include('common.errors')
 
-    {!! Form::open(['route' => 'teachers.store']) !!}
+     {!! Form::open(['url' => 'create-teacher']) !!}
 
         @include('teachers.fields')
 

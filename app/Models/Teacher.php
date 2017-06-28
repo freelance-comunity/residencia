@@ -23,7 +23,11 @@ class Teacher extends Model
 	    "name" => "required",
 		"last_name" => "required",
 		"rfc" => "required",
-		"phone" => "required"
+		"phone" => "required",
+		'email' => 'required|email|max:255|unique:users'
 	];
-
+	public function user()
+	{
+		return $this->belongsTo('App\User');
+	}
 }

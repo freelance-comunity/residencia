@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateGraduateAdminRequest;
 use App\Http\Requests\CreateCompanyAdminRequest;
+use App\Http\Requests\CreateTeacherRequest;
 use App\Http\Requests;
 use App\Models\Graduate;
 use App\Models\Company;
@@ -81,6 +82,7 @@ class AdminController extends Controller
     public function storeCompany(CreateCompanyAdminRequest $request)
     {
         $input = $request->all();
+        $password_random = 'secret';
         /*==== Create User for Graduate ====*/
         $role = Role::where('name', 'company')->first();
         $data['name'] = $request->input('name');
@@ -110,10 +112,14 @@ class AdminController extends Controller
         Auth::login($user);
         return redirect('/home');
     }  
-
+  public function createTeacher()
+    {
+        return view('teachers.create');
+    }
      public function teacher(CreateTeacherRequest $request)
     {
         $input = $request->all();
+        $password_random = 'secret';
         /*==== Create User for Graduate ====*/
         $role = Role::where('name', 'teacher')->first();
         $data['name'] = $request->input('name');
