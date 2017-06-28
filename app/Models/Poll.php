@@ -31,7 +31,7 @@ class Poll extends Model
 	];
 
 	public static $rules = [
-		"question_4" => "required",
+		/*"question_4" => "required",
 		"question_5" => "required",
 		"question_6" => "required",
 		"question_7" => "required",
@@ -41,7 +41,7 @@ class Poll extends Model
 		"question_11" => "required",
 		"question_12" => "required",
 		"question_13" => "required",
-		"question_14" => "required",
+		"question_14" => "required",*/
 	];
 
 	public function graduate()

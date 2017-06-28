@@ -16,7 +16,7 @@ class CreateSurveyasTable extends Migration
 		Schema::create('survey_as', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('q_id');
+			$table->integer('survey_q_id')->unsigned()->foreign('survey_q_id')->references('id')->on('survey_qs');
 			$table->string('o_value');
 			$table->integer('survey_id')->unsigned()->foreign('survey_id')->references('id')->on('surveys');
 			$table->integer('graduate_id')->unsigned()->foreign('graduate_id')->references('id')->on('graduates');

@@ -63,11 +63,12 @@ class Survey_aController extends AppBaseController
 	{
         $input = $request->all();
 
-		$surveyA = Survey_a::create($input);
+		/*$surveyA = Survey_a::create($input);
 
 		Flash::message('Survey_a saved successfully.');
 
-		return redirect(route('surveyAs.index'));
+		return redirect(route('surveyAs.index'));*/
+		dd($input);
 	}
 
 	/**

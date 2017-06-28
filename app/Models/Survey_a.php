@@ -12,15 +12,21 @@ class Survey_a extends Model
 	public $timestamps = true;
 
 	public $fillable = [
-	    "q_id",
+	    "survey_q_id",
 		"o_value",
-		"survey_id"
+		"survey_id",
+		"graduate_id"
 	];
 
 	public static $rules = [
-	    "q_id" => "required",
+	    /*"survey_q_id" => "required",
 		"o_value" => "required",
-		"survey_id" => "required"
+		"survey_id" => "required"*/
 	];
+
+	public function question()
+	{
+		return $this->belongsTo('App\Models\Survey_q');
+	}
 
 }

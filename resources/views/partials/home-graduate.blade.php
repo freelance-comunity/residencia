@@ -9,9 +9,12 @@ $vacancies = App\Models\Vacancy::all()->count();
 $graduate = Auth::user()->graduate;
 $poll     = $graduate->poll;
 $periods  = App\Models\Period::pluck('name', 'name');
+
+$answers = App\Models\Survey_a::where('graduate_id', $graduate->id)->get();
+
 @endphp
 
-@if (is_null($poll))
+@if ($answers->count() == 0)
 <div class="row">
 	<div class="col-md-12">
 		<h4 style="text-align: center;">Estimado <strong>{{ Auth::user()->name }}</strong> te invitamos a responder nuestra encuesta de seguimiento, <strong>para poder hacer uso de nuestros servicios.</strong></h4>

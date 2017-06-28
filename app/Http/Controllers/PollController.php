@@ -79,15 +79,18 @@ class PollController extends AppBaseController
         $input = $request->all();
         $user = Auth::user();
         $graduate = $user->graduate;
-        $input['question_1'] = $user->name;
+       /* $input['question_1'] = $user->name;
         $input['question_2'] = $graduate->phone;
         $input['question_3'] = $user->email;
+        */
         $input['graduate_id'] = $graduate->id;
+        
 		$poll = Poll::create($input);
 
 		Alert::success('Encuesta Guardada Exitosamente.')->persistent('Cerrar');
 
 		return view('polls.show')->with('graduate', $graduate);
+		dd($input);
 	}
 
 	/**

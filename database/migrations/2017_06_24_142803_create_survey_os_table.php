@@ -18,7 +18,7 @@ class CreateSurveyosTable extends Migration
 			$table->increments('id');
 			$table->text('o_text');
 			$table->text('o_value');
-			$table->integer('q_id')->unsigned()->foreign('q_id')->references('id')->on('survey_os');
+			$table->integer('survey_q_id')->unsigned()->foreign('survey_q_id')->references('id')->on('survey_qs');
 			$table->string('o_status');
 			$table->integer('survey_id')->unsigned()->foreign('survey_id')->references('id')->on('surveys');
 			$table->timestamps();
