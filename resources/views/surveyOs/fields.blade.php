@@ -22,8 +22,8 @@
 
 <!--- Q Id Field --->
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::label('q_id', 'ID Pregunta:') !!}
-    {!! Form::text('q_id', $question->id, ['class' => 'form-control', 'readonly']) !!}
+    {!! Form::label('survey_q_id', 'ID Pregunta:') !!}
+    {!! Form::text('survey_q_id', $question->id, ['class' => 'form-control', 'readonly']) !!}
 </div>
 
 <!--- O Status Field --->

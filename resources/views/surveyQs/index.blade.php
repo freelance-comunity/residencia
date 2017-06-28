@@ -4,7 +4,6 @@
 
 <div class="container">
 
-    @include('flash::message')
     @include('sweet::alert')
 
     <div class="row">
@@ -41,7 +40,7 @@
                 </td>
                 <td>
                     <a href="{!! route('surveyQs.edit', [$surveyQ->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="{!! route('surveyQs.delete', [$surveyQ->id]) !!}" onclick="return confirm('Are you sure wants to delete this Survey_q?')"><i class="glyphicon glyphicon-remove"></i></a>
+                    <a href="{!! route('surveyQs.delete', [$surveyQ->id]) !!}" onclick="return confirm('¿Esta seguro de eliminar esta pregunta?')"><i class="glyphicon glyphicon-remove"></i></a>
                 </td>
             </tr>
             @endforeach

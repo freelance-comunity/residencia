@@ -15,7 +15,7 @@ class Survey_o extends Model
 	    "o_text",
 		"o_value",
 		"survey_id",
-		"q_id",
+		"survey_q_id",
 		"o_status"
 	];
 
@@ -23,7 +23,7 @@ class Survey_o extends Model
 	    "o_text" => "required",
 		"o_value" => "required",
 		"survey_id" => "required",
-		"q_id" => "required",
+		"survey_q_id" => "required",
 		"o_status" => "required"
 	];
 

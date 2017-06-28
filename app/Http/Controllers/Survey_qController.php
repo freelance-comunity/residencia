@@ -158,8 +158,10 @@ class Survey_qController extends AppBaseController
 
 		$surveyQ->delete();
 
-		Flash::message('Survey_q deleted successfully.');
+		//Flash::message('Survey_q deleted successfully.');
 
-		return redirect(route('surveyQs.index'));
+		//return redirect(route('surveyQs.index'));
+		Alert::success('Pregunta eliminada exitosamente.');
+		return redirect()->back();
 	}
 }

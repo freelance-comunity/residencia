@@ -1,10 +1,17 @@
 <?php
 
 Route::get('/testing', function(){
-    $tests = App\Models\Test::all();
-    foreach ($tests as $key => $value) {
-        echo $value->number;
+    $questions = App\Models\Survey_q::all();
+    foreach ($questions as $question) {
+        echo $question->q_text;
         echo "<br>";
+        if ($question->q_format == "SELECTED") {
+            $options = $question->options;
+            foreach ($options as $option) {
+                echo $option->o_text;
+                echo "<br>";
+            }
+        }
     }
 });
 
@@ -370,11 +377,11 @@ Route::get('create-option/{id}', function($id) {
 
 Route::get('mails/{id}', function($id){
     $shipping = App\Models\Shipping::find($id);
-    $users = App\User::all();
+    $users = App\Models\Graduate::all();
 
     foreach ($users as $user) {
         $user['message'] = $shipping->body;
-        $user['email']   = $user->email;
+        $user['email']   = $user->user->email;
         $user['name']    = $user->name;
         $user['title']   = $shipping->title;
         Mail::send('emails', ['user' => $user], function($mail) use ($user)
@@ -397,3 +404,11 @@ Route::get('shippings/{id}/delete', [
     'as' => 'shippings.delete',
     'uses' => 'ShippingController@destroy',
     ]);
+
+Route::get('users-graduate', function(){
+    $graduates = App\Models\Graduate::all();
+    foreach ($graduates as $graduate) {
+        echo $graduate->user->email;
+        echo "<br>";
+    }
+});

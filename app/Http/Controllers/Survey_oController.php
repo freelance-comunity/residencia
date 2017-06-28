@@ -57,7 +57,7 @@ class Survey_oController extends AppBaseController
 	public function createCustom($id)
 	{
 		$question = Survey_q::find($id);
-		$surveyOs = Survey_o::where('q_id', $question->id)->get();
+		$surveyOs = Survey_o::where('survey_q_id', $question->id)->get();
 		return view('surveyOs.index')
 		->with('surveyOs', $surveyOs)
 		->with('question', $question);
@@ -79,7 +79,7 @@ class Survey_oController extends AppBaseController
 		Flash::message('Survey_o saved successfully.');
 
 		$question = Survey_q::find($request->input('q_id'));
-		$surveyOs = Survey_o::where('q_id', $question->id)->get();
+		$surveyOs = Survey_o::where('survey_q_id', $question->id)->get();
 
 		return view('surveyOs.index')
 		->with('surveyOs', $surveyOs)

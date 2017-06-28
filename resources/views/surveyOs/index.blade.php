@@ -30,7 +30,7 @@
                     <td>{!! $surveyO->o_text !!}</td>
                     <td>{!! $surveyO->o_value !!}</td>
                     <td>{!! $surveyO->survey_id !!}</td>
-                    <td>{!! $surveyO->q_id !!}</td>
+                    <td>{!! $surveyO->survey_q_id !!}</td>
                     <td>{!! $surveyO->o_status !!}</td>
                     <td>
                         <a href="{!! route('surveyOs.edit', [$surveyO->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
